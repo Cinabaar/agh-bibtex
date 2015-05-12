@@ -1,6 +1,37 @@
 <?xml version="1.0" encoding="ASCII"?>
-<application:Application xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:application="http://www.eclipse.org/ui/2010/UIModel/application" xmlns:basic="http://www.eclipse.org/ui/2010/UIModel/application/ui/basic" xmi:id="_Ss_xAPjdEeSWa4-KFXyMvg" elementId="pl.edu.agh.toik.aghbibtex.application">
-  <children xsi:type="basic:TrimmedWindow" xmi:id="_cpi5sPjdEeSWa4-KFXyMvg" elementId="pl.edu.agh.toik.aghbibtex.trimmedwindow.0" label="AGH-BibTeX" x="100" y="100" width="600" height="400"/>
+<application:Application xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:advanced="http://www.eclipse.org/ui/2010/UIModel/application/ui/advanced" xmlns:application="http://www.eclipse.org/ui/2010/UIModel/application" xmlns:basic="http://www.eclipse.org/ui/2010/UIModel/application/ui/basic" xmlns:menu="http://www.eclipse.org/ui/2010/UIModel/application/ui/menu" xmi:id="_Ss_xAPjdEeSWa4-KFXyMvg" elementId="pl.edu.agh.toik.aghbibtex.application">
+  <children xsi:type="basic:TrimmedWindow" xmi:id="_cpi5sPjdEeSWa4-KFXyMvg" elementId="pl.edu.agh.toik.aghbibtex.trimmedwindow.0" label="AGH-BibTeX" iconURI="platform:/plugin/pl.edu.agh.toik.aghbibtex/res/icons/mainicon.png" x="100" y="100" width="800" height="600">
+    <children xsi:type="advanced:PerspectiveStack" xmi:id="_LXSVcPjiEeSVjsBU7yma2w" elementId="pl.edu.agh.toik.aghbibtex.perspectivestack.0">
+      <children xsi:type="advanced:Perspective" xmi:id="_Z75OYPjiEeSVjsBU7yma2w" elementId="pl.edu.agh.toik.aghbibtex.perspective" label="AGH-BibTeX">
+        <children xsi:type="basic:PartSashContainer" xmi:id="_tpO7sPjiEeSVjsBU7yma2w" elementId="pl.edu.agh.toik.aghbibtex.partsashcontainer.main.0" containerData="" horizontal="true">
+          <children xsi:type="basic:PartStack" xmi:id="_M8BCIPjjEeSVjsBU7yma2w" elementId="pl.edu.agh.toik.aghbibtex.partstack.0" containerData="30">
+            <children xsi:type="basic:Part" xmi:id="_qZjeMPjjEeSVjsBU7yma2w" elementId="pl.edu.agh.toik.aghbibtex.part.list" label="Bibliography Explorer"/>
+          </children>
+          <children xsi:type="basic:PartSashContainer" xmi:id="_PJFWoPjjEeSVjsBU7yma2w" elementId="pl.edu.agh.toik.aghbibtex.partsashcontainer.0" containerData="70">
+            <children xsi:type="basic:PartStack" xmi:id="_PqzjoPjjEeSVjsBU7yma2w" elementId="pl.edu.agh.toik.aghbibtex.partstack.1" containerData="65">
+              <children xsi:type="basic:Part" xmi:id="_urf0gPjjEeSVjsBU7yma2w" elementId="pl.edu.agh.toik.aghbibtex.part.edition" label="Bibliography"/>
+            </children>
+            <children xsi:type="basic:PartStack" xmi:id="_P-pFoPjjEeSVjsBU7yma2w" elementId="pl.edu.agh.toik.aghbibtex.partstack.2" containerData="35">
+              <children xsi:type="basic:Part" xmi:id="_C_kmIPjuEeSVjsBU7yma2w" elementId="pl.edu.agh.toik.aghbibtex.part.edition" label="Edition"/>
+            </children>
+          </children>
+        </children>
+      </children>
+    </children>
+    <mainMenu xmi:id="_ilzNAPjuEeSVjsBU7yma2w" elementId="pl.edu.agh.toik.aghbibtex.menu">
+      <children xsi:type="menu:Menu" xmi:id="_l-oxEPjuEeSVjsBU7yma2w" elementId="pl.edu.agh.toik.aghbibtex.menu.file" label="File">
+        <children xsi:type="menu:HandledMenuItem" xmi:id="_p2WCcPjuEeSVjsBU7yma2w" elementId="pl.edu.agh.toik.aghbibtex.handledmenuitem.new" label="New"/>
+        <children xsi:type="menu:HandledMenuItem" xmi:id="_xPR-4PjuEeSVjsBU7yma2w" elementId="pl.edu.agh.toik.aghbibtex.handledmenuitem.load" label="Load"/>
+        <children xsi:type="menu:HandledMenuItem" xmi:id="_0BdLkPjuEeSVjsBU7yma2w" elementId="pl.edu.agh.toik.aghbibtex.handledmenuitem.save" label="Save"/>
+        <children xsi:type="menu:HandledMenuItem" xmi:id="_1Kmk8PjuEeSVjsBU7yma2w" elementId="pl.edu.agh.toik.aghbibtex.handledmenuitem.saveas" label="Save as ..."/>
+        <children xsi:type="menu:MenuSeparator" xmi:id="_2yP4MPjuEeSVjsBU7yma2w" elementId="pl.edu.agh.toik.aghbibtex.menuseparator.0"/>
+        <children xsi:type="menu:HandledMenuItem" xmi:id="_3Ux9gPjuEeSVjsBU7yma2w" elementId="pl.edu.agh.toik.aghbibtex.handledmenuitem.exit" label="Exit"/>
+      </children>
+      <children xsi:type="menu:Menu" xmi:id="_5fVwkPjuEeSVjsBU7yma2w" elementId="pl.edu.agh.toik.aghbibtex.menu.help" label="Help">
+        <children xsi:type="menu:HandledMenuItem" xmi:id="_6_THcPjuEeSVjsBU7yma2w" elementId="pl.edu.agh.toik.aghbibtex.handledmenuitem.about" label="About"/>
+      </children>
+    </mainMenu>
+  </children>
   <addons xmi:id="_StAYEPjdEeSWa4-KFXyMvg" elementId="org.eclipse.e4.core.commands.service" contributionURI="bundleclass://org.eclipse.e4.core.commands/org.eclipse.e4.core.commands.CommandServiceAddon"/>
   <addons xmi:id="_StAYEfjdEeSWa4-KFXyMvg" elementId="org.eclipse.e4.ui.contexts.service" contributionURI="bundleclass://org.eclipse.e4.ui.services/org.eclipse.e4.ui.services.ContextServiceAddon"/>
   <addons xmi:id="_StAYEvjdEeSWa4-KFXyMvg" elementId="org.eclipse.e4.ui.bindings.service" contributionURI="bundleclass://org.eclipse.e4.ui.bindings/org.eclipse.e4.ui.bindings.BindingServiceAddon"/>
