@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated bibtex -->
+      <package
+            uri="pl.edu.agh.toik.aghbibtex.model"
+            class="pl.edu.agh.toik.aghbibtex.model.Bibtex.BibtexPackage"
+            genModel="model/bibtex.genmodel"/>
+   </extension>
+
+</plugin>

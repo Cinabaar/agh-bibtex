@@ -14,7 +14,8 @@ Require-Bundle: org.apache.felix.gogo.runtime;bundle-version="0.10.0",
  org.eclipse.e4.ui.model.workbench;bundle-version="1.1.0",
  org.eclipse.e4.core.contexts,
  org.eclipse.jface;bundle-version="3.10.2",
- org.eclipse.jface.databinding;bundle-version="1.6.200"
+ org.eclipse.jface.databinding;bundle-version="1.6.200",
+ pl.edu.agh.toik.aghbibtex.model;bundle-version="0.1.0"
 Import-Package: javax.annotation,
  javax.inject;version="1.0.0",
  org.jbibtex

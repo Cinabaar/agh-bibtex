@@ -2,21 +2,17 @@ package pl.edu.agh.toik.aghbibtex.parts;
 
 import javax.annotation.PostConstruct;
 
-import org.eclipse.jface.viewers.IContentProvider;
 import org.eclipse.jface.viewers.ITreeContentProvider;
 import org.eclipse.jface.viewers.TreeViewer;
 import org.eclipse.jface.viewers.Viewer;
 import org.eclipse.swt.SWT;
-import org.eclipse.swt.graphics.Region;
-import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
-import org.eclipse.swt.layout.RowData;
-import org.eclipse.swt.layout.RowLayout;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Text;
 
 public class TagView {
 
+	
 	TreeViewer treeViewer;
 	Text filter;
 	@PostConstruct
@@ -24,8 +20,9 @@ public class TagView {
 	{
 		parent.setLayout(new GridLayout());
 		filter = new Text(parent, SWT.BORDER);
-		filter.setLayoutData(new GridData(parent.getSize().x, 20));
+//		filter.setLayoutData(new GridData(200, 20));
 		treeViewer = new TreeViewer(parent);
+//		treeViewer.getTree().setLayoutData(new GridData(200, 100));
 		treeViewer.setContentProvider(new ITreeContentProvider() {
 		
 			@Override
