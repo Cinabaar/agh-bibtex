@@ -4,6 +4,7 @@ package pl.edu.agh.toik.aghbibtex.model.Bibtex.impl;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 
@@ -128,6 +129,24 @@ public class BibtexPackageImpl extends EPackageImpl implements BibtexPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getBibtexEntry_Name() {
+		return (EAttribute)bibtexEntryEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getBibtexEntry__ToString() {
+		return bibtexEntryEClass.getEOperations().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getTag() {
 		return tagEClass;
 	}
@@ -148,6 +167,15 @@ public class BibtexPackageImpl extends EPackageImpl implements BibtexPackage {
 	 */
 	public EReference getTag_BibtexEntries() {
 		return (EReference)tagEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getTag__ToString() {
+		return tagEClass.getEOperations().get(0);
 	}
 
 	/**
@@ -181,10 +209,13 @@ public class BibtexPackageImpl extends EPackageImpl implements BibtexPackage {
 		bibtexEntryEClass = createEClass(BIBTEX_ENTRY);
 		createEAttribute(bibtexEntryEClass, BIBTEX_ENTRY__VALUE);
 		createEReference(bibtexEntryEClass, BIBTEX_ENTRY__TAGS);
+		createEAttribute(bibtexEntryEClass, BIBTEX_ENTRY__NAME);
+		createEOperation(bibtexEntryEClass, BIBTEX_ENTRY___TO_STRING);
 
 		tagEClass = createEClass(TAG);
 		createEAttribute(tagEClass, TAG__NAME);
 		createEReference(tagEClass, TAG__BIBTEX_ENTRIES);
+		createEOperation(tagEClass, TAG___TO_STRING);
 	}
 
 	/**
@@ -220,10 +251,15 @@ public class BibtexPackageImpl extends EPackageImpl implements BibtexPackage {
 		initEClass(bibtexEntryEClass, BibtexEntry.class, "BibtexEntry", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getBibtexEntry_Value(), ecorePackage.getEString(), "Value", null, 0, 1, BibtexEntry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getBibtexEntry_Tags(), this.getTag(), null, "Tags", null, 0, -1, BibtexEntry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getBibtexEntry_Name(), ecorePackage.getEString(), "Name", null, 0, 1, BibtexEntry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEOperation(getBibtexEntry__ToString(), ecorePackage.getEString(), "toString", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(tagEClass, Tag.class, "Tag", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getTag_Name(), ecorePackage.getEString(), "Name", null, 0, 1, Tag.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getTag_BibtexEntries(), this.getBibtexEntry(), null, "BibtexEntries", null, 0, -1, Tag.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEOperation(getTag__ToString(), ecorePackage.getEString(), "toString", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		// Create resource
 		createResource(eNS_URI);

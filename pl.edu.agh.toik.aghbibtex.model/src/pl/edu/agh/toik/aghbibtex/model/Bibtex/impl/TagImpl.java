@@ -2,6 +2,8 @@
  */
 package pl.edu.agh.toik.aghbibtex.model.Bibtex.impl;
 
+import java.lang.reflect.InvocationTargetException;
+
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -122,6 +124,16 @@ public class TagImpl extends MinimalEObjectImpl.Container implements Tag {
 	 * @generated
 	 */
 	@Override
+	public String toString() {
+		return name;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case BibtexPackage.TAG__NAME:
@@ -192,14 +204,12 @@ public class TagImpl extends MinimalEObjectImpl.Container implements Tag {
 	 * @generated
 	 */
 	@Override
-	public String toString() {
-		if (eIsProxy()) return super.toString();
-
-		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (Name: ");
-		result.append(name);
-		result.append(')');
-		return result.toString();
+	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
+		switch (operationID) {
+			case BibtexPackage.TAG___TO_STRING:
+				return toString();
+		}
+		return super.eInvoke(operationID, arguments);
 	}
 
 } //TagImpl

@@ -66,4 +66,12 @@ public interface Tag extends EObject {
 	 */
 	EList<BibtexEntry> getBibtexEntries();
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model annotation="http://www.eclipse.org/emf/2002/GenModel body='return name;'"
+	 * @generated
+	 */
+	String toString();
+
 } // Tag

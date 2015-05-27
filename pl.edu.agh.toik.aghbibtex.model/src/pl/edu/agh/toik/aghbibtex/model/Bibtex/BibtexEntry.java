@@ -16,6 +16,7 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link pl.edu.agh.toik.aghbibtex.model.Bibtex.BibtexEntry#getValue <em>Value</em>}</li>
  *   <li>{@link pl.edu.agh.toik.aghbibtex.model.Bibtex.BibtexEntry#getTags <em>Tags</em>}</li>
+ *   <li>{@link pl.edu.agh.toik.aghbibtex.model.Bibtex.BibtexEntry#getName <em>Name</em>}</li>
  * </ul>
  * </p>
  *
@@ -65,5 +66,39 @@ public interface BibtexEntry extends EObject {
 	 * @generated
 	 */
 	EList<Tag> getTags();
+
+	/**
+	 * Returns the value of the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Name</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Name</em>' attribute.
+	 * @see #setName(String)
+	 * @see pl.edu.agh.toik.aghbibtex.model.Bibtex.BibtexPackage#getBibtexEntry_Name()
+	 * @model
+	 * @generated
+	 */
+	String getName();
+
+	/**
+	 * Sets the value of the '{@link pl.edu.agh.toik.aghbibtex.model.Bibtex.BibtexEntry#getName <em>Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Name</em>' attribute.
+	 * @see #getName()
+	 * @generated
+	 */
+	void setName(String value);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model annotation="http://www.eclipse.org/emf/2002/GenModel body='return name;'"
+	 * @generated
+	 */
+	String toString();
 
 } // BibtexEntry
