@@ -6,7 +6,8 @@ import org.eclipse.jface.viewers.ITreeContentProvider;
 import org.eclipse.jface.viewers.TreeViewer;
 import org.eclipse.jface.viewers.Viewer;
 import org.eclipse.swt.SWT;
-import org.eclipse.swt.layout.GridLayout;
+import org.eclipse.swt.layout.RowData;
+import org.eclipse.swt.layout.RowLayout;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Text;
 
@@ -18,11 +19,16 @@ public class TagView {
 	@PostConstruct
 	public void createContents(Composite parent)
 	{
-		parent.setLayout(new GridLayout());
+		
+		RowLayout layout = new RowLayout();
+		layout.fill = true;
+		parent.setLayout(layout);
 		filter = new Text(parent, SWT.BORDER);
-//		filter.setLayoutData(new GridData(200, 20));
+		filter.setLayoutData(new RowData(270, 20));
+		
 		treeViewer = new TreeViewer(parent);
-//		treeViewer.getTree().setLayoutData(new GridData(200, 100));
+		treeViewer.getTree().setLayoutData(new RowData(250, 450));
+		parent.pack();
 		treeViewer.setContentProvider(new ITreeContentProvider() {
 		
 			@Override
