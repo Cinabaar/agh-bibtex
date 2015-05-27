@@ -5,14 +5,14 @@
       <children xsi:type="advanced:Perspective" xmi:id="_Z75OYPjiEeSVjsBU7yma2w" elementId="pl.edu.agh.toik.aghbibtex.perspective" label="AGH-BibTeX">
         <children xsi:type="basic:PartSashContainer" xmi:id="_tpO7sPjiEeSVjsBU7yma2w" elementId="pl.edu.agh.toik.aghbibtex.partsashcontainer.main.0" containerData="" horizontal="true">
           <children xsi:type="basic:PartStack" xmi:id="_M8BCIPjjEeSVjsBU7yma2w" elementId="pl.edu.agh.toik.aghbibtex.partstack.0" containerData="30">
-            <children xsi:type="basic:Part" xmi:id="_qZjeMPjjEeSVjsBU7yma2w" elementId="pl.edu.agh.toik.aghbibtex.part.list" label="Bibliography Explorer"/>
+            <children xsi:type="basic:Part" xmi:id="_qZjeMPjjEeSVjsBU7yma2w" elementId="pl.edu.agh.toik.aghbibtex.part.list" contributionURI="bundleclass://pl.edu.agh.toik.aghbibtex/pl.edu.agh.toik.aghbibtex.parts.TagView" label="Bibliography Explorer"/>
           </children>
           <children xsi:type="basic:PartSashContainer" xmi:id="_PJFWoPjjEeSVjsBU7yma2w" elementId="pl.edu.agh.toik.aghbibtex.partsashcontainer.0" containerData="70">
-            <children xsi:type="basic:PartStack" xmi:id="_PqzjoPjjEeSVjsBU7yma2w" elementId="pl.edu.agh.toik.aghbibtex.partstack.1" containerData="65">
-              <children xsi:type="basic:Part" xmi:id="_urf0gPjjEeSVjsBU7yma2w" elementId="pl.edu.agh.toik.aghbibtex.part.edition" contributionURI="bundleclass://pl.edu.agh.toik.aghbibtex/pl.edu.agh.toik.aghbibtex.parts.BibliographyView" label="Bibliography"/>
+            <children xsi:type="basic:PartStack" xmi:id="_PqzjoPjjEeSVjsBU7yma2w" elementId="pl.edu.agh.toik.aghbibtex.partstack.BibliographyPS" containerData="65">
+              <children xsi:type="basic:Part" xmi:id="_urf0gPjjEeSVjsBU7yma2w" elementId="pl.edu.agh.toik.aghbibtex.part.view" contributionURI="bundleclass://pl.edu.agh.toik.aghbibtex/pl.edu.agh.toik.aghbibtex.parts.BibliographyView" label="Bibliography"/>
             </children>
             <children xsi:type="basic:PartStack" xmi:id="_P-pFoPjjEeSVjsBU7yma2w" elementId="pl.edu.agh.toik.aghbibtex.partstack.2" containerData="35">
-              <children xsi:type="basic:Part" xmi:id="_C_kmIPjuEeSVjsBU7yma2w" elementId="pl.edu.agh.toik.aghbibtex.part.edition" label="Edition"/>
+              <children xsi:type="basic:Part" xmi:id="_C_kmIPjuEeSVjsBU7yma2w" elementId="pl.edu.agh.toik.aghbibtex.part.edit" label="Edit"/>
             </children>
           </children>
         </children>
@@ -20,21 +20,18 @@
     </children>
     <mainMenu xmi:id="_ilzNAPjuEeSVjsBU7yma2w" elementId="pl.edu.agh.toik.aghbibtex.menu">
       <children xsi:type="menu:Menu" xmi:id="_l-oxEPjuEeSVjsBU7yma2w" elementId="pl.edu.agh.toik.aghbibtex.menu.file" label="File">
-        <children xsi:type="menu:HandledMenuItem" xmi:id="_p2WCcPjuEeSVjsBU7yma2w" elementId="pl.edu.agh.toik.aghbibtex.handledmenuitem.new" label="New"/>
-        <children xsi:type="menu:HandledMenuItem" xmi:id="_h4OzwPmbEeSwg46ut-lanw" elementId="pl.edu.agh.toik.aghbibtex.handledmenuitem.open" label="Open" command="_9bSVkPmaEeSwg46ut-lanw"/>
-        <children xsi:type="menu:HandledMenuItem" xmi:id="_xPR-4PjuEeSVjsBU7yma2w" elementId="pl.edu.agh.toik.aghbibtex.handledmenuitem.load" label="Load"/>
-        <children xsi:type="menu:HandledMenuItem" xmi:id="_0BdLkPjuEeSVjsBU7yma2w" elementId="pl.edu.agh.toik.aghbibtex.handledmenuitem.save" label="Save"/>
-        <children xsi:type="menu:HandledMenuItem" xmi:id="_1Kmk8PjuEeSVjsBU7yma2w" elementId="pl.edu.agh.toik.aghbibtex.handledmenuitem.saveas" label="Save as ..."/>
+        <children xsi:type="menu:HandledMenuItem" xmi:id="_h4OzwPmbEeSwg46ut-lanw" elementId="pl.edu.agh.toik.aghbibtex.handledmenuitem.import" label="Import" command="_9bSVkPmaEeSwg46ut-lanw"/>
         <children xsi:type="menu:MenuSeparator" xmi:id="_2yP4MPjuEeSVjsBU7yma2w" elementId="pl.edu.agh.toik.aghbibtex.menuseparator.0"/>
         <children xsi:type="menu:HandledMenuItem" xmi:id="_3Ux9gPjuEeSVjsBU7yma2w" elementId="pl.edu.agh.toik.aghbibtex.handledmenuitem.exit" label="Exit"/>
+        <children xsi:type="menu:HandledMenuItem" xmi:id="_0BdLkPjuEeSVjsBU7yma2w" elementId="pl.edu.agh.toik.aghbibtex.handledmenuitem.save" label="Save"/>
       </children>
       <children xsi:type="menu:Menu" xmi:id="_5fVwkPjuEeSVjsBU7yma2w" elementId="pl.edu.agh.toik.aghbibtex.menu.help" label="Help">
         <children xsi:type="menu:HandledMenuItem" xmi:id="_6_THcPjuEeSVjsBU7yma2w" elementId="pl.edu.agh.toik.aghbibtex.handledmenuitem.about" label="About"/>
       </children>
     </mainMenu>
   </children>
-  <handlers xmi:id="_Auo8sPmbEeSwg46ut-lanw" elementId="pl.edu.agh.toik.aghbibtex.handler.OpenHandler" contributionURI="bundleclass://pl.edu.agh.toik.aghbibtex/pl.edu.agh.toik.aghbibtex.handlers.OpenHandler" command="_9bSVkPmaEeSwg46ut-lanw"/>
-  <commands xmi:id="_9bSVkPmaEeSwg46ut-lanw" elementId="pl.edu.agh.toik.aghbibtex.command.Open" commandName="Open"/>
+  <handlers xmi:id="_Auo8sPmbEeSwg46ut-lanw" elementId="pl.edu.agh.toik.aghbibtex.handler.ImportHandler" contributionURI="bundleclass://pl.edu.agh.toik.aghbibtex/pl.edu.agh.toik.aghbibtex.handlers.ImportHandler" command="_9bSVkPmaEeSwg46ut-lanw"/>
+  <commands xmi:id="_9bSVkPmaEeSwg46ut-lanw" elementId="org.eclipse.ui.file.import" commandName="Import"/>
   <addons xmi:id="_StAYEPjdEeSWa4-KFXyMvg" elementId="org.eclipse.e4.core.commands.service" contributionURI="bundleclass://org.eclipse.e4.core.commands/org.eclipse.e4.core.commands.CommandServiceAddon"/>
   <addons xmi:id="_StAYEfjdEeSWa4-KFXyMvg" elementId="org.eclipse.e4.ui.contexts.service" contributionURI="bundleclass://org.eclipse.e4.ui.services/org.eclipse.e4.ui.services.ContextServiceAddon"/>
   <addons xmi:id="_StAYEvjdEeSWa4-KFXyMvg" elementId="org.eclipse.e4.ui.bindings.service" contributionURI="bundleclass://org.eclipse.e4.ui.bindings/org.eclipse.e4.ui.bindings.BindingServiceAddon"/>
