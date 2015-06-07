@@ -38,6 +38,7 @@ public class ImportHandler {
 		stack.getChildren().add(part);
 		partService.showPart(part, PartState.ACTIVATE);
 		part.setDirty(true);
+		
 	}
 		
 }

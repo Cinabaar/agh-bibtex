@@ -77,22 +77,22 @@ public interface BibtexPackage extends EPackage {
 	int BIBTEX_ENTRY__VALUE = 0;
 
 	/**
-	 * The feature id for the '<em><b>Tags</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BIBTEX_ENTRY__TAGS = 1;
-
-	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int BIBTEX_ENTRY__NAME = 2;
+	int BIBTEX_ENTRY__NAME = 1;
+
+	/**
+	 * The feature id for the '<em><b>Tags</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BIBTEX_ENTRY__TAGS = 2;
 
 	/**
 	 * The number of structural features of the '<em>Entry</em>' class.
@@ -141,22 +141,13 @@ public interface BibtexPackage extends EPackage {
 	int TAG__NAME = 0;
 
 	/**
-	 * The feature id for the '<em><b>Bibtex Entries</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TAG__BIBTEX_ENTRIES = 1;
-
-	/**
 	 * The number of structural features of the '<em>Tag</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TAG_FEATURE_COUNT = 2;
+	int TAG_FEATURE_COUNT = 1;
 
 	/**
 	 * The operation id for the '<em>To String</em>' operation.
@@ -252,17 +243,6 @@ public interface BibtexPackage extends EPackage {
 	EAttribute getTag_Name();
 
 	/**
-	 * Returns the meta object for the reference list '{@link pl.edu.agh.toik.aghbibtex.model.Bibtex.Tag#getBibtexEntries <em>Bibtex Entries</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Bibtex Entries</em>'.
-	 * @see pl.edu.agh.toik.aghbibtex.model.Bibtex.Tag#getBibtexEntries()
-	 * @see #getTag()
-	 * @generated
-	 */
-	EReference getTag_BibtexEntries();
-
-	/**
 	 * Returns the meta object for the '{@link pl.edu.agh.toik.aghbibtex.model.Bibtex.Tag#toString() <em>To String</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -354,14 +334,6 @@ public interface BibtexPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute TAG__NAME = eINSTANCE.getTag_Name();
-
-		/**
-		 * The meta object literal for the '<em><b>Bibtex Entries</b></em>' reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference TAG__BIBTEX_ENTRIES = eINSTANCE.getTag_BibtexEntries();
 
 		/**
 		 * The meta object literal for the '<em><b>To String</b></em>' operation.

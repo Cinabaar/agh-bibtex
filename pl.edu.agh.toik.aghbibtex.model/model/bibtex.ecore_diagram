@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<notation:Diagram xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation" xmi:id="_TNL0EA0BEeWfWeFDIsemEw" type="Ecore" measurementUnit="Pixel">
+  <children xmi:type="notation:Shape" xmi:id="_UdoIQA0BEeWfWeFDIsemEw" type="2001" fontName="Cantarell">
+    <children xmi:type="notation:DecorationNode" xmi:id="_UdrLkA0BEeWfWeFDIsemEw" type="5001"/>
+    <children xmi:type="notation:BasicCompartment" xmi:id="_Udu18A0BEeWfWeFDIsemEw" type="7001">
+      <styles xmi:type="notation:SortingStyle" xmi:id="_Udu18Q0BEeWfWeFDIsemEw"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_Udu18g0BEeWfWeFDIsemEw"/>
+    </children>
+    <children xmi:type="notation:BasicCompartment" xmi:id="_UdvdAA0BEeWfWeFDIsemEw" type="7002">
+      <styles xmi:type="notation:SortingStyle" xmi:id="_UdvdAQ0BEeWfWeFDIsemEw"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_UdvdAg0BEeWfWeFDIsemEw"/>
+    </children>
+    <children xmi:type="notation:BasicCompartment" xmi:id="_UdvdAw0BEeWfWeFDIsemEw" type="7003">
+      <styles xmi:type="notation:SortingStyle" xmi:id="_UdvdBA0BEeWfWeFDIsemEw"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_UdvdBQ0BEeWfWeFDIsemEw"/>
+    </children>
+    <element xmi:type="ecore:EClass" href="bibtex.ecore#//BibtexEntry"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_UdoIQQ0BEeWfWeFDIsemEw" x="300" y="120" width="145" height="109"/>
+  </children>
+  <children xmi:type="notation:Shape" xmi:id="_UdwEEA0BEeWfWeFDIsemEw" type="2001" fontName="Cantarell">
+    <children xmi:type="notation:DecorationNode" xmi:id="_UdwEEg0BEeWfWeFDIsemEw" type="5001"/>
+    <children xmi:type="notation:BasicCompartment" xmi:id="_UdwEEw0BEeWfWeFDIsemEw" type="7001">
+      <styles xmi:type="notation:SortingStyle" xmi:id="_UdwEFA0BEeWfWeFDIsemEw"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_UdwEFQ0BEeWfWeFDIsemEw"/>
+    </children>
+    <children xmi:type="notation:BasicCompartment" xmi:id="_UdwrIA0BEeWfWeFDIsemEw" type="7002">
+      <styles xmi:type="notation:SortingStyle" xmi:id="_UdwrIQ0BEeWfWeFDIsemEw"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_UdwrIg0BEeWfWeFDIsemEw"/>
+    </children>
+    <children xmi:type="notation:BasicCompartment" xmi:id="_UdwrIw0BEeWfWeFDIsemEw" type="7003">
+      <styles xmi:type="notation:SortingStyle" xmi:id="_UdwrJA0BEeWfWeFDIsemEw"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_UdwrJQ0BEeWfWeFDIsemEw"/>
+    </children>
+    <element xmi:type="ecore:EClass" href="bibtex.ecore#//Tag"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_UdwEEQ0BEeWfWeFDIsemEw" x="48" y="144" width="157" height="97"/>
+  </children>
+  <styles xmi:type="notation:DiagramStyle" xmi:id="_TNL0EQ0BEeWfWeFDIsemEw"/>
+  <element xmi:type="ecore:EPackage" href="bibtex.ecore#/"/>
+</notation:Diagram>

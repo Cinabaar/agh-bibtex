@@ -1,0 +1,20 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Persistence Implementation
+Bundle-SymbolicName: pl.edu.agh.toik.aghbibtex.persistence.impl;singleton:=true
+Bundle-Version: 1.0.0.qualifier
+Bundle-Activator: pl.edu.agh.toik.aghbibtex.persistence.impl.Activator
+Require-Bundle: org.eclipse.core.runtime,
+ org.eclipse.emf.ecore;visibility:=reexport,
+ org.eclipse.emf.ecore.xmi;visibility:=reexport,
+ org.eclipse.emf.teneo.hibernate,
+ org.hibernate,
+ org.hsqldb,
+ pl.edu.agh.toik.aghbibtex.model,
+ org.eclipse.osgi,
+ org.eclipse.e4.core.contexts,
+ org.eclipse.e4.core.di,
+ pl.edu.agh.toik.aghbibtex.persistence.impl,
+ pl.edu.agh.toik.aghbibtex.persistence;bundle-version="1.0.0"
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Export-Package: pl.edu.agh.toik.aghbibtex.persistence.impl

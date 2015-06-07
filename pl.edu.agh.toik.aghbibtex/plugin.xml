@@ -12,6 +12,10 @@
                name="appName"
                value="aghbibtex">
          </property>
+         <property
+               name="lifeCycleURI"
+               value="bundleclass://pl.edu.agh.toik.aghbibtex/pl.edu.agh.toik.aghbibtex.lifecycle.Manager">
+         </property>
       </product>
    </extension>
 

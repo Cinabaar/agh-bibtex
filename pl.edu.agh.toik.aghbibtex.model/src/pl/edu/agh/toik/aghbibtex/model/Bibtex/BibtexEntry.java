@@ -15,8 +15,8 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * <ul>
  *   <li>{@link pl.edu.agh.toik.aghbibtex.model.Bibtex.BibtexEntry#getValue <em>Value</em>}</li>
- *   <li>{@link pl.edu.agh.toik.aghbibtex.model.Bibtex.BibtexEntry#getTags <em>Tags</em>}</li>
  *   <li>{@link pl.edu.agh.toik.aghbibtex.model.Bibtex.BibtexEntry#getName <em>Name</em>}</li>
+ *   <li>{@link pl.edu.agh.toik.aghbibtex.model.Bibtex.BibtexEntry#getTags <em>Tags</em>}</li>
  * </ul>
  * </p>
  *

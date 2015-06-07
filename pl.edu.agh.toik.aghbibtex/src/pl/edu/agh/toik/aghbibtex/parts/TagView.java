@@ -26,7 +26,7 @@ import pl.edu.agh.toik.aghbibtex.model.Bibtex.Tag;
 
 public class TagView {
 
-	ListViewer listViewer;
+	/*ListViewer listViewer;
 	ComboViewer comboViewer;
 	
 	@PostConstruct
@@ -100,6 +100,6 @@ public class TagView {
 				return ((Tag)inputElement).getBibtexEntries().toArray();			
 			}
 		});
-	}
+	}*/
 	
 }

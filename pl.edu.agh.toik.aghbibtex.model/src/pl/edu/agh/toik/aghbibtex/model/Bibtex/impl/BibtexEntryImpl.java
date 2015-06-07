@@ -28,8 +28,8 @@ import pl.edu.agh.toik.aghbibtex.model.Bibtex.Tag;
  * The following features are implemented:
  * <ul>
  *   <li>{@link pl.edu.agh.toik.aghbibtex.model.Bibtex.impl.BibtexEntryImpl#getValue <em>Value</em>}</li>
- *   <li>{@link pl.edu.agh.toik.aghbibtex.model.Bibtex.impl.BibtexEntryImpl#getTags <em>Tags</em>}</li>
  *   <li>{@link pl.edu.agh.toik.aghbibtex.model.Bibtex.impl.BibtexEntryImpl#getName <em>Name</em>}</li>
+ *   <li>{@link pl.edu.agh.toik.aghbibtex.model.Bibtex.impl.BibtexEntryImpl#getTags <em>Tags</em>}</li>
  * </ul>
  * </p>
  *
@@ -57,16 +57,6 @@ public class BibtexEntryImpl extends MinimalEObjectImpl.Container implements Bib
 	protected String value = VALUE_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getTags() <em>Tags</em>}' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getTags()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<Tag> tags;
-
-	/**
 	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -85,6 +75,16 @@ public class BibtexEntryImpl extends MinimalEObjectImpl.Container implements Bib
 	 * @ordered
 	 */
 	protected String name = NAME_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getTags() <em>Tags</em>}' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getTags()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Tag> tags;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -169,10 +169,10 @@ public class BibtexEntryImpl extends MinimalEObjectImpl.Container implements Bib
 		switch (featureID) {
 			case BibtexPackage.BIBTEX_ENTRY__VALUE:
 				return getValue();
-			case BibtexPackage.BIBTEX_ENTRY__TAGS:
-				return getTags();
 			case BibtexPackage.BIBTEX_ENTRY__NAME:
 				return getName();
+			case BibtexPackage.BIBTEX_ENTRY__TAGS:
+				return getTags();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -189,12 +189,12 @@ public class BibtexEntryImpl extends MinimalEObjectImpl.Container implements Bib
 			case BibtexPackage.BIBTEX_ENTRY__VALUE:
 				setValue((String)newValue);
 				return;
+			case BibtexPackage.BIBTEX_ENTRY__NAME:
+				setName((String)newValue);
+				return;
 			case BibtexPackage.BIBTEX_ENTRY__TAGS:
 				getTags().clear();
 				getTags().addAll((Collection<? extends Tag>)newValue);
-				return;
-			case BibtexPackage.BIBTEX_ENTRY__NAME:
-				setName((String)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -211,11 +211,11 @@ public class BibtexEntryImpl extends MinimalEObjectImpl.Container implements Bib
 			case BibtexPackage.BIBTEX_ENTRY__VALUE:
 				setValue(VALUE_EDEFAULT);
 				return;
-			case BibtexPackage.BIBTEX_ENTRY__TAGS:
-				getTags().clear();
-				return;
 			case BibtexPackage.BIBTEX_ENTRY__NAME:
 				setName(NAME_EDEFAULT);
+				return;
+			case BibtexPackage.BIBTEX_ENTRY__TAGS:
+				getTags().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -231,10 +231,10 @@ public class BibtexEntryImpl extends MinimalEObjectImpl.Container implements Bib
 		switch (featureID) {
 			case BibtexPackage.BIBTEX_ENTRY__VALUE:
 				return VALUE_EDEFAULT == null ? value != null : !VALUE_EDEFAULT.equals(value);
-			case BibtexPackage.BIBTEX_ENTRY__TAGS:
-				return tags != null && !tags.isEmpty();
 			case BibtexPackage.BIBTEX_ENTRY__NAME:
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+			case BibtexPackage.BIBTEX_ENTRY__TAGS:
+				return tags != null && !tags.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
