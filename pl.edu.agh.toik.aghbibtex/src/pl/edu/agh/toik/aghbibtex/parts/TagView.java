@@ -16,17 +16,14 @@ import org.eclipse.jface.viewers.Viewer;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.SelectionEvent;
 import org.eclipse.swt.events.SelectionListener;
+import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.RowData;
 import org.eclipse.swt.layout.RowLayout;
-import org.eclipse.swt.widgets.Combo;
+import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Composite;
-import org.omg.CORBA.RepositoryIdHelper;
 
-import pl.edu.agh.toik.aghbibtex.model.Bibtex.BibtexEntry;
-import pl.edu.agh.toik.aghbibtex.model.Bibtex.BibtexFactory;
 import pl.edu.agh.toik.aghbibtex.model.Bibtex.Tag;
 import pl.edu.agh.toik.aghbibtex.persistence.IBibtexRepository;
-import pl.edu.agh.toik.aghbibtex.persistence.impl.BibtexRepository;
 
 public class TagView {
 
@@ -40,11 +37,12 @@ public class TagView {
 	@PostConstruct
 	public void createContents(Composite parent)
 	{	
-		RowLayout layout = new RowLayout();
-		layout.fill = true;
-		parent.setLayout(layout);
+		GridLayout gridLayout = new GridLayout();
+		//RowLayout layout = new RowLayout();
+		//layout.fill = true;
+		parent.setLayout(gridLayout);
 		comboViewer = new ComboViewer(parent, SWT.BORDER);
-		comboViewer.getCombo().setLayoutData(new RowData(270, 20));
+		comboViewer.getCombo().setLayoutData(new GridData(GridData.FILL_HORIZONTAL));
 		
 		comboViewer.setContentProvider(new IStructuredContentProvider() {		
 			@Override
@@ -69,7 +67,7 @@ public class TagView {
 		comboViewer.setInput(tags);
 			
 		listViewer = new ListViewer(parent);
-		listViewer.getList().setLayoutData(new RowData(250, 450));
+		listViewer.getList().setLayoutData(new GridData(GridData.FILL_BOTH));
 		parent.pack();
 		listViewer.setContentProvider(new IStructuredContentProvider() {
 			@Override
