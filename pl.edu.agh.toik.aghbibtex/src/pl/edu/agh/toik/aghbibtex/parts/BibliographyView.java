@@ -1,6 +1,8 @@
 package pl.edu.agh.toik.aghbibtex.parts;
 
 
+import java.util.List;
+
 import javax.annotation.PostConstruct;
 import javax.inject.Inject;
 import javax.management.InvalidApplicationException;
@@ -26,6 +28,15 @@ public class BibliographyView {
 	@PostConstruct
 	public void createControls(Composite parent) 
 	{
-		
+		BibtexEntry entry = repository.createBibtexEntry();
+		entry.getTags().add(repository.getOrCreateTag("ala"));
+		entry.setName("test");
+		entry.setValue("testval");
+		repository.saveBibtexEntry(entry);
+		List<BibtexEntry> entries = repository.getBibteEntriesWithTag(repository.getOrCreateTag("ala"));
+		for(BibtexEntry e : entries)
+		{
+			System.out.println(e.getName() + " " + e.getValue());
+		}
 	}
 }

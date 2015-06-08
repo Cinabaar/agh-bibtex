@@ -10,6 +10,7 @@ import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.teneo.PersistenceOptions;
 import org.eclipse.emf.teneo.hibernate.HbDataStore;
 import org.eclipse.emf.teneo.hibernate.HbHelper;
+import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
@@ -51,18 +52,96 @@ public class BibtexRepository implements IBibtexRepository
 		_sessionFactory = hbds.getSessionFactory();
 	}
 
+	private Session beginTransaction()
+	{
+		Session session = _sessionFactory.openSession();
+		session.beginTransaction();
+		return session;
+	}
+	
+	private void endTransaction(Session s)
+	{
+		Transaction t = s.getTransaction();
+		t.commit();
+		s.close();
+	}
+	
 	@Override
 	public List<BibtexEntry> getAllBibtexEntries() {
-		List<BibtexEntry> entries = new ArrayList<BibtexEntry>();
-		BibtexEntry entry = BibtexFactory.eINSTANCE.createBibtexEntry();
-		entry.setName("ala");
-		entry.setValue("bala");
-		entries.add(entry);
-		return entries;
+
+		Session session = beginTransaction();
+		
+		Query query = session.createQuery("FROM BibtexEntry");
+		List<BibtexEntry> books = query.list();
+		
+		
+		endTransaction(session);		
+		return books;
 	}
 
 	@Override
 	public List<Tag> getAllTags() {
-		return new ArrayList<Tag>() {{add(BibtexFactory.eINSTANCE.createTag());}};
+		Session session = beginTransaction();
+		
+		Query query = session.createQuery("FROM Tag");
+		List<Tag> tags = query.list();
+		
+		endTransaction(session);		
+		return tags;
 	}
+	
+	public void saveBibtexEntry(BibtexEntry entry)
+	{
+		saveBibtexEntries(new ArrayList<BibtexEntry>() {{add(entry);}});
+	}
+	
+	public void saveBibtexEntries(List<BibtexEntry> entries)
+	{
+		Session session = beginTransaction();
+		
+		for(BibtexEntry entry : entries)
+		{
+			session.saveOrUpdate(entry);
+		}
+		
+		endTransaction(session);
+	}
+	
+	public BibtexEntry createBibtexEntry()
+	{
+		return BibtexFactory.eINSTANCE.createBibtexEntry();
+	}
+	
+	public Tag getOrCreateTag(String name)
+	{
+		Tag tag;
+		Session session = beginTransaction();
+		Query query = session.createQuery("FROM Tag tag WHERE tag.Name = :name");
+		query.setParameter("name", name);
+		
+		List<Tag> tags = query.list();
+		if(tags.size() == 0)
+		{
+			tag = BibtexFactory.eINSTANCE.createTag();
+			tag.setName(name);
+			session.save(tag);
+		} 
+		else
+		{
+			tag = tags.get(0);
+		}
+		endTransaction(session);
+		return tag;
+	}
+
+	@Override
+	public List<BibtexEntry> getBibteEntriesWithTag(Tag tag) {
+		Session session = beginTransaction();
+		Query query = session.createQuery("select entry from BibtexEntry as entry left outer join entry.Tags as tag where tag.Name = 'ala'");
+		List<BibtexEntry> entries = query.list();
+		endTransaction(session);
+		return entries;
+	}
+	
+	
 }

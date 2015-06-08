@@ -9,4 +9,12 @@ public interface IBibtexRepository
 {
 	List<BibtexEntry> getAllBibtexEntries();
 	List<Tag> getAllTags();
+	Tag getOrCreateTag(String name);
+	BibtexEntry createBibtexEntry();
+	List<BibtexEntry> getBibteEntriesWithTag(Tag tag);
+	
+	void saveBibtexEntries(List<BibtexEntry> entries);
+	void saveBibtexEntry(BibtexEntry entry);
+	
+	
 }
