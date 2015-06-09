@@ -1,4 +1,4 @@
-package pl.edu.agh.toik.aghbibtex.persistence.impl;
+package pl.edu.agh.toik.aghbibtex.persistence.contribution;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -29,7 +29,6 @@ public class BibtexRepository implements IBibtexRepository
 	
 	public BibtexRepository() 
 	{
-		System.out.println("1111111111111111111111");
 		final Properties props = new Properties();
 		props.setProperty(Environment.DRIVER, "org.hsqldb.jdbcDriver");
 		props.setProperty(Environment.USER, "sa");

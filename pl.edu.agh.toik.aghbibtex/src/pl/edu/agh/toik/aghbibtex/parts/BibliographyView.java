@@ -28,7 +28,7 @@ public class BibliographyView {
 	@PostConstruct
 	public void createControls(Composite parent) 
 	{
-		BibtexEntry entry = repository.createBibtexEntry();
+		/*BibtexEntry entry = repository.createBibtexEntry();
 		entry.getTags().add(repository.getOrCreateTag("ala"));
 		entry.setName("test");
 		entry.setValue("testval");
@@ -37,6 +37,6 @@ public class BibliographyView {
 		for(BibtexEntry e : entries)
 		{
 			System.out.println(e.getName() + " " + e.getValue());
-		}
+		}*/
 	}
 }

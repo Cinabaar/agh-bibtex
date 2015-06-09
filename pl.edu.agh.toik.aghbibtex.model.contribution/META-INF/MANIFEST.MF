@@ -1,0 +1,11 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: ModelContribution
+Bundle-SymbolicName: pl.edu.agh.toik.aghbibtex.model.contribution;singleton:=true
+Bundle-Version: 1.0.0.qualifier
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Require-Bundle: pl.edu.agh.toik.aghbibtex.model;bundle-version="0.1.0",
+ org.jbibtex;bundle-version="1.0.0"
+Import-Package: org.hibernate.mapping
+Export-Package: pl.edu.agh.toik.aghbibtex.model.contribution
+Bundle-ActivationPolicy: lazy

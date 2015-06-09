@@ -3,7 +3,6 @@
 
 <product name="aghbibtex" id="pl.edu.agh.toik.aghbibtex.product" application="org.eclipse.e4.ui.workbench.swt.E4Application" useFeatures="false" includeLaunchers="true">
 
-
    <configIni use="default">
    </configIni>
 
@@ -16,7 +15,6 @@
 
    <windowImages/>
 
-
    <launcher>
       <solaris/>
       <win useIco="false">
@@ -24,10 +22,8 @@
       </win>
    </launcher>
 
-
    <vm>
    </vm>
-
 
    <plugins>
       <plugin id="com.ibm.icu"/>
@@ -77,9 +73,12 @@
       <plugin id="org.eclipse.swt.gtk.linux.x86_64" fragment="true"/>
       <plugin id="org.hibernate"/>
       <plugin id="org.hsqldb"/>
+      <plugin id="org.jbibtex"/>
       <plugin id="pl.edu.agh.toik.aghbibtex"/>
       <plugin id="pl.edu.agh.toik.aghbibtex.model"/>
+      <plugin id="pl.edu.agh.toik.aghbibtex.model.contribution"/>
       <plugin id="pl.edu.agh.toik.aghbibtex.persistence"/>
+      <plugin id="pl.edu.agh.toik.aghbibtex.persistence.contribution"/>
       <plugin id="pl.edu.agh.toik.aghbibtex.persistence.impl"/>
       <plugin id="pl.edu.agh.toik.bibtex"/>
    </plugins>

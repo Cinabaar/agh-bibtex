@@ -7,7 +7,8 @@ Bundle-ClassPath: .
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
-Export-Package: pl.edu.agh.toik.aghbibtex.model.Bibtex,
+Export-Package: pl.edu.agh.toik.aghbibtex.model,
+ pl.edu.agh.toik.aghbibtex.model.Bibtex,
  pl.edu.agh.toik.aghbibtex.model.Bibtex.impl,
  pl.edu.agh.toik.aghbibtex.model.Bibtex.util
 Require-Bundle: org.eclipse.core.runtime,

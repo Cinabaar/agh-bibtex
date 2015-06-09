@@ -18,10 +18,13 @@ Require-Bundle: org.apache.felix.gogo.runtime;bundle-version="0.10.0",
  pl.edu.agh.toik.aghbibtex.model;bundle-version="0.1.0",
  pl.edu.agh.toik.aghbibtex.persistence;bundle-version="1.0.0",
  org.eclipse.osgi,
- org.eclipse.equinox.app
+ org.eclipse.equinox.app,
+ javax.annotation,
+ javax.inject,
+ org.eclipse.e4.ui.services;bundle-version="1.1.0"
 Import-Package: javax.annotation,
  javax.inject;version="1.0.0",
  org.eclipse.core.runtime;version="3.4.0",
- org.jbibtex,
- pl.edu.agh.toik.aghbibtex.persistence.impl
+ pl.edu.agh.toik.aghbibtex.persistence.contribution,
+ pl.edu.agh.toik.aghbibtex.model.contribution
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7

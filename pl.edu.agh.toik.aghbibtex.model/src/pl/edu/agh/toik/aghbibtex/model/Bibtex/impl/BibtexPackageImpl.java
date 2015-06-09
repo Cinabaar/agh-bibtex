@@ -111,7 +111,7 @@ public class BibtexPackageImpl extends EPackageImpl implements BibtexPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getBibtexEntry_Value() {
+	public EAttribute getBibtexEntry_Text() {
 		return (EAttribute)bibtexEntryEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -120,8 +120,8 @@ public class BibtexPackageImpl extends EPackageImpl implements BibtexPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getBibtexEntry_Tags() {
-		return (EReference)bibtexEntryEClass.getEStructuralFeatures().get(2);
+	public EAttribute getBibtexEntry_Title() {
+		return (EAttribute)bibtexEntryEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -129,8 +129,53 @@ public class BibtexPackageImpl extends EPackageImpl implements BibtexPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getBibtexEntry_Name() {
-		return (EAttribute)bibtexEntryEClass.getEStructuralFeatures().get(1);
+	public EAttribute getBibtexEntry_Author() {
+		return (EAttribute)bibtexEntryEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getBibtexEntry_Journal() {
+		return (EAttribute)bibtexEntryEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getBibtexEntry_Volume() {
+		return (EAttribute)bibtexEntryEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getBibtexEntry_Pages() {
+		return (EAttribute)bibtexEntryEClass.getEStructuralFeatures().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getBibtexEntry_Year() {
+		return (EAttribute)bibtexEntryEClass.getEStructuralFeatures().get(6);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getBibtexEntry_Tags() {
+		return (EReference)bibtexEntryEClass.getEStructuralFeatures().get(7);
 	}
 
 	/**
@@ -198,8 +243,13 @@ public class BibtexPackageImpl extends EPackageImpl implements BibtexPackage {
 
 		// Create classes and their features
 		bibtexEntryEClass = createEClass(BIBTEX_ENTRY);
-		createEAttribute(bibtexEntryEClass, BIBTEX_ENTRY__VALUE);
-		createEAttribute(bibtexEntryEClass, BIBTEX_ENTRY__NAME);
+		createEAttribute(bibtexEntryEClass, BIBTEX_ENTRY__TEXT);
+		createEAttribute(bibtexEntryEClass, BIBTEX_ENTRY__TITLE);
+		createEAttribute(bibtexEntryEClass, BIBTEX_ENTRY__AUTHOR);
+		createEAttribute(bibtexEntryEClass, BIBTEX_ENTRY__JOURNAL);
+		createEAttribute(bibtexEntryEClass, BIBTEX_ENTRY__VOLUME);
+		createEAttribute(bibtexEntryEClass, BIBTEX_ENTRY__PAGES);
+		createEAttribute(bibtexEntryEClass, BIBTEX_ENTRY__YEAR);
 		createEReference(bibtexEntryEClass, BIBTEX_ENTRY__TAGS);
 		createEOperation(bibtexEntryEClass, BIBTEX_ENTRY___TO_STRING);
 
@@ -239,8 +289,13 @@ public class BibtexPackageImpl extends EPackageImpl implements BibtexPackage {
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(bibtexEntryEClass, BibtexEntry.class, "BibtexEntry", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getBibtexEntry_Value(), ecorePackage.getEString(), "Value", null, 0, 1, BibtexEntry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getBibtexEntry_Name(), ecorePackage.getEString(), "Name", null, 0, 1, BibtexEntry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getBibtexEntry_Text(), ecorePackage.getEString(), "Text", null, 0, 1, BibtexEntry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getBibtexEntry_Title(), ecorePackage.getEString(), "Title", null, 0, 1, BibtexEntry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getBibtexEntry_Author(), ecorePackage.getEString(), "Author", null, 0, 1, BibtexEntry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getBibtexEntry_Journal(), ecorePackage.getEString(), "Journal", null, 0, 1, BibtexEntry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getBibtexEntry_Volume(), ecorePackage.getEString(), "Volume", null, 0, 1, BibtexEntry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getBibtexEntry_Pages(), ecorePackage.getEString(), "Pages", null, 0, 1, BibtexEntry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getBibtexEntry_Year(), ecorePackage.getEString(), "Year", null, 0, 1, BibtexEntry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getBibtexEntry_Tags(), this.getTag(), null, "Tags", null, 0, -1, BibtexEntry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEOperation(getBibtexEntry__ToString(), ecorePackage.getEString(), "toString", 0, 1, IS_UNIQUE, IS_ORDERED);

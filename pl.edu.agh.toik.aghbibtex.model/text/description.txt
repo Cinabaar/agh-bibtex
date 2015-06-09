@@ -8,8 +8,13 @@ This can be disabled with -vmargs -Dorg.eclipse.emf.examples.generator.validator
 Package Bibtex <pl.edu.agh.toik.aghbibtex.model>
 
   Class BibtexEntry
-    Attribute Value : EString
-    Attribute Name : EString
+    Attribute Text : EString
+    Attribute Title : EString
+    Attribute Author : EString
+    Attribute Journal : EString
+    Attribute Volume : EString
+    Attribute Pages : EString
+    Attribute Year : EString
     Reference Tags : Tag<<0..*>>
     Operation toString() : EString
 

@@ -17,6 +17,20 @@ import pl.edu.agh.toik.aghbibtex.model.Bibtex.Tag;
 public interface BibtexEntryValidator {
 	boolean validate();
 
+	boolean validateText(String value);
+
+	boolean validateTitle(String value);
+
+	boolean validateAuthor(String value);
+
+	boolean validateJournal(String value);
+
+	boolean validateVolume(String value);
+
+	boolean validatePages(String value);
+
+	boolean validateYear(String value);
+
 	boolean validateValue(String value);
 	boolean validateName(String value);
 	boolean validateTags(EList<Tag> value);

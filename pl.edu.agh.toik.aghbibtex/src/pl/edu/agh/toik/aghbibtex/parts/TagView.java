@@ -38,8 +38,6 @@ public class TagView {
 	public void createContents(Composite parent)
 	{	
 		GridLayout gridLayout = new GridLayout();
-		//RowLayout layout = new RowLayout();
-		//layout.fill = true;
 		parent.setLayout(gridLayout);
 		comboViewer = new ComboViewer(parent, SWT.BORDER);
 		comboViewer.getCombo().setLayoutData(new GridData(GridData.FILL_HORIZONTAL));

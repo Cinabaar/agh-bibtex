@@ -68,22 +68,67 @@ public interface BibtexPackage extends EPackage {
 	int BIBTEX_ENTRY = 0;
 
 	/**
-	 * The feature id for the '<em><b>Value</b></em>' attribute.
+	 * The feature id for the '<em><b>Text</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int BIBTEX_ENTRY__VALUE = 0;
+	int BIBTEX_ENTRY__TEXT = 0;
 
 	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * The feature id for the '<em><b>Title</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int BIBTEX_ENTRY__NAME = 1;
+	int BIBTEX_ENTRY__TITLE = 1;
+
+	/**
+	 * The feature id for the '<em><b>Author</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BIBTEX_ENTRY__AUTHOR = 2;
+
+	/**
+	 * The feature id for the '<em><b>Journal</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BIBTEX_ENTRY__JOURNAL = 3;
+
+	/**
+	 * The feature id for the '<em><b>Volume</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BIBTEX_ENTRY__VOLUME = 4;
+
+	/**
+	 * The feature id for the '<em><b>Pages</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BIBTEX_ENTRY__PAGES = 5;
+
+	/**
+	 * The feature id for the '<em><b>Year</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BIBTEX_ENTRY__YEAR = 6;
 
 	/**
 	 * The feature id for the '<em><b>Tags</b></em>' reference list.
@@ -92,7 +137,7 @@ public interface BibtexPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BIBTEX_ENTRY__TAGS = 2;
+	int BIBTEX_ENTRY__TAGS = 7;
 
 	/**
 	 * The number of structural features of the '<em>Entry</em>' class.
@@ -101,7 +146,7 @@ public interface BibtexPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BIBTEX_ENTRY_FEATURE_COUNT = 3;
+	int BIBTEX_ENTRY_FEATURE_COUNT = 8;
 
 	/**
 	 * The operation id for the '<em>To String</em>' operation.
@@ -179,15 +224,81 @@ public interface BibtexPackage extends EPackage {
 	EClass getBibtexEntry();
 
 	/**
-	 * Returns the meta object for the attribute '{@link pl.edu.agh.toik.aghbibtex.model.Bibtex.BibtexEntry#getValue <em>Value</em>}'.
+	 * Returns the meta object for the attribute '{@link pl.edu.agh.toik.aghbibtex.model.Bibtex.BibtexEntry#getText <em>Text</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Value</em>'.
-	 * @see pl.edu.agh.toik.aghbibtex.model.Bibtex.BibtexEntry#getValue()
+	 * @return the meta object for the attribute '<em>Text</em>'.
+	 * @see pl.edu.agh.toik.aghbibtex.model.Bibtex.BibtexEntry#getText()
 	 * @see #getBibtexEntry()
 	 * @generated
 	 */
-	EAttribute getBibtexEntry_Value();
+	EAttribute getBibtexEntry_Text();
+
+	/**
+	 * Returns the meta object for the attribute '{@link pl.edu.agh.toik.aghbibtex.model.Bibtex.BibtexEntry#getTitle <em>Title</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Title</em>'.
+	 * @see pl.edu.agh.toik.aghbibtex.model.Bibtex.BibtexEntry#getTitle()
+	 * @see #getBibtexEntry()
+	 * @generated
+	 */
+	EAttribute getBibtexEntry_Title();
+
+	/**
+	 * Returns the meta object for the attribute '{@link pl.edu.agh.toik.aghbibtex.model.Bibtex.BibtexEntry#getAuthor <em>Author</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Author</em>'.
+	 * @see pl.edu.agh.toik.aghbibtex.model.Bibtex.BibtexEntry#getAuthor()
+	 * @see #getBibtexEntry()
+	 * @generated
+	 */
+	EAttribute getBibtexEntry_Author();
+
+	/**
+	 * Returns the meta object for the attribute '{@link pl.edu.agh.toik.aghbibtex.model.Bibtex.BibtexEntry#getJournal <em>Journal</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Journal</em>'.
+	 * @see pl.edu.agh.toik.aghbibtex.model.Bibtex.BibtexEntry#getJournal()
+	 * @see #getBibtexEntry()
+	 * @generated
+	 */
+	EAttribute getBibtexEntry_Journal();
+
+	/**
+	 * Returns the meta object for the attribute '{@link pl.edu.agh.toik.aghbibtex.model.Bibtex.BibtexEntry#getVolume <em>Volume</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Volume</em>'.
+	 * @see pl.edu.agh.toik.aghbibtex.model.Bibtex.BibtexEntry#getVolume()
+	 * @see #getBibtexEntry()
+	 * @generated
+	 */
+	EAttribute getBibtexEntry_Volume();
+
+	/**
+	 * Returns the meta object for the attribute '{@link pl.edu.agh.toik.aghbibtex.model.Bibtex.BibtexEntry#getPages <em>Pages</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Pages</em>'.
+	 * @see pl.edu.agh.toik.aghbibtex.model.Bibtex.BibtexEntry#getPages()
+	 * @see #getBibtexEntry()
+	 * @generated
+	 */
+	EAttribute getBibtexEntry_Pages();
+
+	/**
+	 * Returns the meta object for the attribute '{@link pl.edu.agh.toik.aghbibtex.model.Bibtex.BibtexEntry#getYear <em>Year</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Year</em>'.
+	 * @see pl.edu.agh.toik.aghbibtex.model.Bibtex.BibtexEntry#getYear()
+	 * @see #getBibtexEntry()
+	 * @generated
+	 */
+	EAttribute getBibtexEntry_Year();
 
 	/**
 	 * Returns the meta object for the reference list '{@link pl.edu.agh.toik.aghbibtex.model.Bibtex.BibtexEntry#getTags <em>Tags</em>}'.
@@ -199,17 +310,6 @@ public interface BibtexPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getBibtexEntry_Tags();
-
-	/**
-	 * Returns the meta object for the attribute '{@link pl.edu.agh.toik.aghbibtex.model.Bibtex.BibtexEntry#getName <em>Name</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Name</em>'.
-	 * @see pl.edu.agh.toik.aghbibtex.model.Bibtex.BibtexEntry#getName()
-	 * @see #getBibtexEntry()
-	 * @generated
-	 */
-	EAttribute getBibtexEntry_Name();
 
 	/**
 	 * Returns the meta object for the '{@link pl.edu.agh.toik.aghbibtex.model.Bibtex.BibtexEntry#toString() <em>To String</em>}' operation.
@@ -286,12 +386,60 @@ public interface BibtexPackage extends EPackage {
 		EClass BIBTEX_ENTRY = eINSTANCE.getBibtexEntry();
 
 		/**
-		 * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Text</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute BIBTEX_ENTRY__VALUE = eINSTANCE.getBibtexEntry_Value();
+		EAttribute BIBTEX_ENTRY__TEXT = eINSTANCE.getBibtexEntry_Text();
+
+		/**
+		 * The meta object literal for the '<em><b>Title</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute BIBTEX_ENTRY__TITLE = eINSTANCE.getBibtexEntry_Title();
+
+		/**
+		 * The meta object literal for the '<em><b>Author</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute BIBTEX_ENTRY__AUTHOR = eINSTANCE.getBibtexEntry_Author();
+
+		/**
+		 * The meta object literal for the '<em><b>Journal</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute BIBTEX_ENTRY__JOURNAL = eINSTANCE.getBibtexEntry_Journal();
+
+		/**
+		 * The meta object literal for the '<em><b>Volume</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute BIBTEX_ENTRY__VOLUME = eINSTANCE.getBibtexEntry_Volume();
+
+		/**
+		 * The meta object literal for the '<em><b>Pages</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute BIBTEX_ENTRY__PAGES = eINSTANCE.getBibtexEntry_Pages();
+
+		/**
+		 * The meta object literal for the '<em><b>Year</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute BIBTEX_ENTRY__YEAR = eINSTANCE.getBibtexEntry_Year();
 
 		/**
 		 * The meta object literal for the '<em><b>Tags</b></em>' reference list feature.
@@ -300,14 +448,6 @@ public interface BibtexPackage extends EPackage {
 		 * @generated
 		 */
 		EReference BIBTEX_ENTRY__TAGS = eINSTANCE.getBibtexEntry_Tags();
-
-		/**
-		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute BIBTEX_ENTRY__NAME = eINSTANCE.getBibtexEntry_Name();
 
 		/**
 		 * The meta object literal for the '<em><b>To String</b></em>' operation.

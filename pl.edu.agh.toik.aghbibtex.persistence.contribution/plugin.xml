@@ -3,11 +3,11 @@
 <plugin>
    <extension
          id="Persistence"
-         name="Yay"
+         name="Persistence"
          point="pl.edu.agh.toik.aghbibtex.persistence">
       <BibtexPersistence
-            class="pl.edu.agh.toik.aghbibtex.persistence.impl.BibtexRepository"
-            id="pl.edu.agh.toik.aghbibtex.persistence.impl.BibtexPersistence">
+            class="pl.edu.agh.toik.aghbibtex.persistence.contribution.BibtexRepository"
+            id="pl.edu.agh.toik.aghbibtex.persistence.contribution.BibtexPersistence">
       </BibtexPersistence>
    </extension>
 

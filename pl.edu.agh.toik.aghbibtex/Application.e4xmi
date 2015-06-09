@@ -12,7 +12,7 @@
               <children xsi:type="basic:Part" xmi:id="_urf0gPjjEeSVjsBU7yma2w" elementId="pl.edu.agh.toik.aghbibtex.part.view" contributionURI="bundleclass://pl.edu.agh.toik.aghbibtex/pl.edu.agh.toik.aghbibtex.parts.BibliographyView" label="Bibliography"/>
             </children>
             <children xsi:type="basic:PartStack" xmi:id="_P-pFoPjjEeSVjsBU7yma2w" elementId="pl.edu.agh.toik.aghbibtex.partstack.2" containerData="35">
-              <children xsi:type="basic:Part" xmi:id="_C_kmIPjuEeSVjsBU7yma2w" elementId="pl.edu.agh.toik.aghbibtex.part.edit" label="Edit"/>
+              <children xsi:type="basic:Part" xmi:id="_C_kmIPjuEeSVjsBU7yma2w" elementId="pl.edu.agh.toik.aghbibtex.part.edit" contributionURI="bundleclass://pl.edu.agh.toik.aghbibtex/pl.edu.agh.toik.aghbibtex.parts.BibliographyEdit" label="Edit"/>
             </children>
           </children>
         </children>
