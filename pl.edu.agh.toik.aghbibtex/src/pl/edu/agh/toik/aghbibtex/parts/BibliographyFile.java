@@ -17,6 +17,7 @@ import org.eclipse.e4.core.contexts.IEclipseContext;
 import org.eclipse.e4.core.di.annotations.Optional;
 import org.eclipse.e4.ui.di.Persist;
 import org.eclipse.e4.ui.di.UIEventTopic;
+import org.eclipse.e4.ui.model.application.ui.MDirtyable;
 import org.eclipse.e4.ui.workbench.modeling.ESelectionService;
 import org.eclipse.jface.viewers.ArrayContentProvider;
 import org.eclipse.jface.viewers.CheckStateChangedEvent;
@@ -42,17 +43,21 @@ import org.eclipse.swt.widgets.TableItem;
 import pl.edu.agh.toik.aghbibtex.model.IBibtexImporter;
 import pl.edu.agh.toik.aghbibtex.model.Bibtex.BibtexEntry;
 import pl.edu.agh.toik.aghbibtex.model.Bibtex.impl.BibtexEntryImpl;
+import pl.edu.agh.toik.aghbibtex.persistence.IBibtexRepository;
 import pl.edu.agh.toik.aghbibtex.util.StringUtil;
 
 public class BibliographyFile {
 	private String fileName;
-	private Table table;
 	private CheckboxTableViewer viewer;
 	private List<BibtexEntry> items;
 	@Inject
-	IBibtexImporter converter;
+	private IBibtexImporter converter;
 	@Inject
 	private ESelectionService selectionService;
+	@Inject
+	private IBibtexRepository repository;
+	@Inject
+	private MDirtyable dirtyable;
 	
 	@PostConstruct
 	public void createControls(Composite parent, @Named("fileName") String fileName) 
@@ -62,6 +67,13 @@ public class BibliographyFile {
 		createViewer(parent);
 
 	}
+	
+	@Inject
+	@Optional
+	private void refreshTable(@UIEventTopic("refreshTable") String data) {
+	  viewer.refresh();
+	} 
+	
 	private void createViewer(Composite parent) {
 	    viewer = CheckboxTableViewer.newCheckList(parent, SWT.H_SCROLL
 	        | SWT.V_SCROLL | SWT.BORDER);
@@ -78,6 +90,7 @@ public class BibliographyFile {
 			public void selectionChanged(SelectionChangedEvent event) {
 				BibtexEntry entry = (BibtexEntry)((IStructuredSelection)event.getSelection()).getFirstElement();
 				selectionService.setSelection(entry);
+				dirtyable.setDirty(true);
 			}
 		});
 	    
@@ -176,7 +189,14 @@ public class BibliographyFile {
 	  
 	  @Persist
 	  public void save() {
-		
+		List<BibtexEntry> bs = new ArrayList<BibtexEntry>();
+		for(Object o : viewer.getCheckedElements())
+		{
+			bs.add((BibtexEntry)o);
+		}
+		repository.saveBibtexEntries(bs);
+		dirtyable.setDirty(false);
+		viewer.setCheckedElements(new Object[0]);
 	  }
 
 }

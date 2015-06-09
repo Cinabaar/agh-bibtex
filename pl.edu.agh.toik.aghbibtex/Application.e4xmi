@@ -20,10 +20,10 @@
     </children>
     <mainMenu xmi:id="_ilzNAPjuEeSVjsBU7yma2w" elementId="pl.edu.agh.toik.aghbibtex.menu">
       <children xsi:type="menu:Menu" xmi:id="_l-oxEPjuEeSVjsBU7yma2w" elementId="pl.edu.agh.toik.aghbibtex.menu.file" label="File">
+        <children xsi:type="menu:HandledMenuItem" xmi:id="_0BdLkPjuEeSVjsBU7yma2w" elementId="pl.edu.agh.toik.aghbibtex.handledmenuitem.save" label="Save" command="_tnyLMA7QEeW9KL4hsKF16w"/>
         <children xsi:type="menu:HandledMenuItem" xmi:id="_h4OzwPmbEeSwg46ut-lanw" elementId="pl.edu.agh.toik.aghbibtex.handledmenuitem.import" label="Import" command="_9bSVkPmaEeSwg46ut-lanw"/>
         <children xsi:type="menu:MenuSeparator" xmi:id="_2yP4MPjuEeSVjsBU7yma2w" elementId="pl.edu.agh.toik.aghbibtex.menuseparator.0"/>
         <children xsi:type="menu:HandledMenuItem" xmi:id="_3Ux9gPjuEeSVjsBU7yma2w" elementId="pl.edu.agh.toik.aghbibtex.handledmenuitem.exit" label="Exit"/>
-        <children xsi:type="menu:HandledMenuItem" xmi:id="_0BdLkPjuEeSVjsBU7yma2w" elementId="pl.edu.agh.toik.aghbibtex.handledmenuitem.save" label="Save"/>
       </children>
       <children xsi:type="menu:Menu" xmi:id="_5fVwkPjuEeSVjsBU7yma2w" elementId="pl.edu.agh.toik.aghbibtex.menu.help" label="Help">
         <children xsi:type="menu:HandledMenuItem" xmi:id="_6_THcPjuEeSVjsBU7yma2w" elementId="pl.edu.agh.toik.aghbibtex.handledmenuitem.about" label="About"/>
@@ -31,7 +31,9 @@
     </mainMenu>
   </children>
   <handlers xmi:id="_Auo8sPmbEeSwg46ut-lanw" elementId="pl.edu.agh.toik.aghbibtex.handler.ImportHandler" contributionURI="bundleclass://pl.edu.agh.toik.aghbibtex/pl.edu.agh.toik.aghbibtex.handlers.ImportHandler" command="_9bSVkPmaEeSwg46ut-lanw"/>
+  <handlers xmi:id="_Guz9MA7VEeW9KL4hsKF16w" elementId="pl.edu.agh.toik.aghbibtex.handler.SaveHandler" contributionURI="bundleclass://pl.edu.agh.toik.aghbibtex/pl.edu.agh.toik.aghbibtex.handlers.SaveHandler" command="_tnyLMA7QEeW9KL4hsKF16w"/>
   <commands xmi:id="_9bSVkPmaEeSwg46ut-lanw" elementId="org.eclipse.ui.file.import" commandName="Import"/>
+  <commands xmi:id="_tnyLMA7QEeW9KL4hsKF16w" elementId="org.eclipse.ui.file.save" commandName="Save"/>
   <addons xmi:id="_StAYEPjdEeSWa4-KFXyMvg" elementId="org.eclipse.e4.core.commands.service" contributionURI="bundleclass://org.eclipse.e4.core.commands/org.eclipse.e4.core.commands.CommandServiceAddon"/>
   <addons xmi:id="_StAYEfjdEeSWa4-KFXyMvg" elementId="org.eclipse.e4.ui.contexts.service" contributionURI="bundleclass://org.eclipse.e4.ui.services/org.eclipse.e4.ui.services.ContextServiceAddon"/>
   <addons xmi:id="_StAYEvjdEeSWa4-KFXyMvg" elementId="org.eclipse.e4.ui.bindings.service" contributionURI="bundleclass://org.eclipse.e4.ui.bindings/org.eclipse.e4.ui.bindings.BindingServiceAddon"/>

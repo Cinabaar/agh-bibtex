@@ -4,6 +4,7 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.Reader;
+import java.io.StringReader;
 import java.io.StringWriter;
 import java.io.Writer;
 import java.util.ArrayList;
@@ -27,7 +28,6 @@ public class BibtexImporter implements IBibtexImporter {
 
 	@Override
 	public List<BibtexEntry> importFromFile(String fileName) {
-		System.out.println("KURWA");
 		List<BibtexEntry> es = new ArrayList<BibtexEntry>();
 
 		try(Reader reader = new FileReader(fileName))
@@ -42,20 +42,7 @@ public class BibtexImporter implements IBibtexImporter {
 			  List<Key> columnHeaders = new ArrayList<Key>();
 			  
 			  for(BibTeXEntry entry : entries){
-				  BibtexEntry e = BibtexFactory.eINSTANCE.createBibtexEntry();
-				  dat = new BibTeXDatabase();
-				  dat.addObject(entry);
-				  formatter = new BibTeXFormatter();
-				  StringWriter w = new StringWriter();
-				  formatter.format(dat, w);
-				  e.setText(w.toString());
-				  e.setAuthor(fromLatexString(entry.getField(BibTeXEntry.KEY_AUTHOR)));
-				  e.setJournal(fromLatexString(entry.getField(BibTeXEntry.KEY_JOURNAL)));
-				  e.setPages(fromLatexString(entry.getField(BibTeXEntry.KEY_PAGES)));
-				  e.setTitle(fromLatexString(entry.getField(BibTeXEntry.KEY_TITLE)));
-				  e.setVolume(fromLatexString(entry.getField(BibTeXEntry.KEY_VOLUME)));
-				  e.setYear(fromLatexString(entry.getField(BibTeXEntry.KEY_YEAR)));
-				  es.add(e);
+				  es.add(convertFromJbibtex(entry));
 			  }
 		} 
 		catch(Exception e)
@@ -83,6 +70,53 @@ public class BibtexImporter implements IBibtexImporter {
 			}
 		} else {
 		    return string;
+		}
+	}
+
+	@Override
+	public BibtexEntry readEntry(String entry) {
+
+		try {
+			StringReader reader = new StringReader(entry);
+			BibTeXParser bibtexParser;
+			bibtexParser = new BibTeXParser();
+			BibTeXDatabase database = bibtexParser.parseFully(reader);
+			Collection<BibTeXEntry> entries = database.getEntries().values();
+			BibtexEntry en = null;
+			for(BibTeXEntry e : entries){
+				en = convertFromJbibtex(e);
+			}
+			return en;
+		} catch (Exception e)
+		{
+			return null;
+		}
+
+	}
+	
+	public BibtexEntry convertFromJbibtex(BibTeXEntry entry)
+	{
+		try
+		{
+		BibtexEntry e = BibtexFactory.eINSTANCE.createBibtexEntry();
+		
+		BibTeXDatabase  dat = new BibTeXDatabase();
+		dat.addObject(entry);
+		BibTeXFormatter  formatter = new BibTeXFormatter();
+	    StringWriter w = new StringWriter();
+		formatter.format(dat, w);
+		e.setText(w.toString());
+		e.setAuthor(fromLatexString(entry.getField(BibTeXEntry.KEY_AUTHOR)));
+		e.setJournal(fromLatexString(entry.getField(BibTeXEntry.KEY_JOURNAL)));
+		e.setPages(fromLatexString(entry.getField(BibTeXEntry.KEY_PAGES)));
+		e.setTitle(fromLatexString(entry.getField(BibTeXEntry.KEY_TITLE)));
+		e.setVolume(fromLatexString(entry.getField(BibTeXEntry.KEY_VOLUME)));
+		e.setYear(fromLatexString(entry.getField(BibTeXEntry.KEY_YEAR)));
+		return e;
+		}
+		catch(Exception e)
+		{
+			return null;
 		}
 	}
 

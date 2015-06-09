@@ -11,6 +11,8 @@ import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IConfigurationElement;
 import org.eclipse.core.runtime.Platform;
 import org.eclipse.e4.core.contexts.IEclipseContext;
+import org.eclipse.e4.core.di.annotations.Optional;
+import org.eclipse.e4.ui.di.UIEventTopic;
 import org.eclipse.equinox.app.IApplicationContext;
 import org.eclipse.swt.widgets.Composite;
 import org.osgi.framework.FrameworkUtil;
@@ -21,7 +23,12 @@ import pl.edu.agh.toik.aghbibtex.persistence.IBibtexRepository;
 
 public class BibliographyView {
 	
-	
+	@Inject
+	@Optional
+	private void refreshTable(@UIEventTopic("refreshTable") String data) {
+	  
+	} 
+
 	@Inject
 	IBibtexRepository repository;
 	

@@ -15,7 +15,7 @@ import pl.edu.agh.toik.aghbibtex.model.IBibtexExporter;
 import pl.edu.agh.toik.aghbibtex.model.IBibtexImporter;
 import pl.edu.agh.toik.aghbibtex.persistence.IBibtexRepository;
 
-public class Manager {
+public class Manager{
 	
 	@PostContextCreate
 	public void postContextCreate(IEclipseContext context) {

@@ -7,5 +7,6 @@ import pl.edu.agh.toik.aghbibtex.model.Bibtex.BibtexEntry;
 public interface IBibtexImporter {
 
 	List<BibtexEntry> importFromFile(String fileName);
+	BibtexEntry readEntry(String entry);
 
 }
