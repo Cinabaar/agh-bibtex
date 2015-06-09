@@ -6,3 +6,4 @@ Bundle-Version: 1.0.0.qualifier
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Require-Bundle: pl.edu.agh.toik.aghbibtex.model
 Export-Package: pl.edu.agh.toik.aghbibtex.persistence
+Bundle-ActivationPolicy: lazy

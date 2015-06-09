@@ -19,14 +19,14 @@ import org.jbibtex.ParseException;
 import org.jbibtex.TokenMgrException;
 import org.jbibtex.Value;
 
-import pl.edu.agh.toik.aghbibtex.model.IBibtexEntryConverter;
+import pl.edu.agh.toik.aghbibtex.model.IBibtexImporter;
 import pl.edu.agh.toik.aghbibtex.model.Bibtex.BibtexEntry;
 import pl.edu.agh.toik.aghbibtex.model.Bibtex.BibtexFactory;
 
-public class BibtexEntryConverter implements IBibtexEntryConverter {
+public class BibtexImporter implements IBibtexImporter {
 
 	@Override
-	public List<BibtexEntry> convertFile(String fileName) {
+	public List<BibtexEntry> importFromFile(String fileName) {
 		System.out.println("KURWA");
 		List<BibtexEntry> es = new ArrayList<BibtexEntry>();
 

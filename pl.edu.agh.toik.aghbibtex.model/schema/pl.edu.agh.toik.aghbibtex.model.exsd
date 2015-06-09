@@ -3,7 +3,7 @@
 <schema targetNamespace="pl.edu.agh.toik.aghbibtex.model" xmlns="http://www.w3.org/2001/XMLSchema">
 <annotation>
       <appInfo>
-         <meta.schema plugin="pl.edu.agh.toik.aghbibtex.model" id="BibtexEntryConverter" name="BibtexEntryConverter"/>
+         <meta.schema plugin="pl.edu.agh.toik.aghbibtex.model" id="model" name="pl.edu.agh.toik.aghbibtex.model"/>
       </appInfo>
       <documentation>
          [Enter description of this extension point.]
@@ -18,7 +18,10 @@
       </annotation>
       <complexType>
          <choice>
-            <element ref="BibtexEntryConverter"/>
+            <sequence>
+               <element ref="BibtexExporter"/>
+               <element ref="BibtexImporter"/>
+            </sequence>
          </choice>
          <attribute name="point" type="string" use="required">
             <annotation>
@@ -47,7 +50,7 @@
       </complexType>
    </element>
 
-   <element name="BibtexEntryConverter">
+   <element name="BibtexExporter">
       <complexType>
          <attribute name="id" type="string" use="required">
             <annotation>
@@ -62,7 +65,29 @@
                   
                </documentation>
                <appInfo>
-                  <meta.attribute kind="java" basedOn=":pl.edu.agh.toik.aghbibtex.model.IBibtexEntryConverter"/>
+                  <meta.attribute kind="java" basedOn=":pl.edu.agh.toik.aghbibtex.model.IBibtexExporter"/>
+               </appInfo>
+            </annotation>
+         </attribute>
+      </complexType>
+   </element>
+
+   <element name="BibtexImporter">
+      <complexType>
+         <attribute name="id" type="string" use="required">
+            <annotation>
+               <documentation>
+                  
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="class" type="string" use="required">
+            <annotation>
+               <documentation>
+                  
+               </documentation>
+               <appInfo>
+                  <meta.attribute kind="java" basedOn=":pl.edu.agh.toik.aghbibtex.model.IBibtexImporter"/>
                </appInfo>
             </annotation>
          </attribute>

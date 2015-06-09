@@ -19,25 +19,21 @@ import pl.edu.agh.toik.aghbibtex.model.Bibtex.BibtexEntry;
 
 public class BibliographyEdit {
 	
-	private Text t;
-	
-	@Inject
-	public BibliographyEdit(Composite parent) {
-		t = new Text(parent, SWT.MULTI | SWT.BORDER | SWT.WRAP | SWT.V_SCROLL);
-	    t.setLayoutData(new GridData(GridData.FILL_BOTH));
-	}
+	private Text textBox;
+	private BibtexEntry currentSelection;
 	
 	@Inject
 	void setSelection(@Optional @Named(IServiceConstants.ACTIVE_SELECTION) BibtexEntry entry) {
 	  if(entry==null) return;
-	  t.setText(entry.getText());
+	  currentSelection = entry;
+	  textBox.setText(currentSelection.getText());
 	}
 	
 	@PostConstruct
 	public void postConstruct(Composite parent) {
-		
+		textBox = new Text(parent, SWT.MULTI | SWT.BORDER | SWT.WRAP | SWT.V_SCROLL);
+		textBox.setLayoutData(new GridData(GridData.FILL_BOTH));
 	}
-	
 	
 	@Persist
 	public void save() {

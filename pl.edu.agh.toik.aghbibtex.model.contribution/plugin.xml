@@ -2,12 +2,15 @@
 <?eclipse version="3.4"?>
 <plugin>
    <extension
-         id="pl.edu.agh.toik.aghbibtex.model.BibtexEntryConverter"
-         point="pl.edu.agh.toik.aghbibtex.model.BibtexEntryConverter">
-      <BibtexEntryConverter
-            class="pl.edu.agh.toik.aghbibtex.model.contribution.BibtexEntryConverter"
-            id="pl.edu.agh.toik.aghbibtex.model.BibtexEntryConverter">
-      </BibtexEntryConverter>
+         point="pl.edu.agh.toik.aghbibtex.model.pl.edu.agh.toik.aghbibtex.model">
+      <BibtexExporter
+            class="pl.edu.agh.toik.aghbibtex.model.contribution.BibtexExporter"
+            id="pl.edu.agh.toik.aghbibtex.model.contribution.BibtexExporter">
+      </BibtexExporter>
+      <BibtexImporter
+            class="pl.edu.agh.toik.aghbibtex.model.contribution.BibtexImporter"
+            id="pl.edu.agh.toik.aghbibtex.model.contribution.BibtexImporter">
+      </BibtexImporter>
    </extension>
 
 </plugin>

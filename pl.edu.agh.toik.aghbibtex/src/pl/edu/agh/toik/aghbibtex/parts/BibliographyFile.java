@@ -39,7 +39,7 @@ import org.eclipse.swt.widgets.Table;
 import org.eclipse.swt.widgets.TableColumn;
 import org.eclipse.swt.widgets.TableItem;
 
-import pl.edu.agh.toik.aghbibtex.model.IBibtexEntryConverter;
+import pl.edu.agh.toik.aghbibtex.model.IBibtexImporter;
 import pl.edu.agh.toik.aghbibtex.model.Bibtex.BibtexEntry;
 import pl.edu.agh.toik.aghbibtex.model.Bibtex.impl.BibtexEntryImpl;
 import pl.edu.agh.toik.aghbibtex.util.StringUtil;
@@ -50,7 +50,7 @@ public class BibliographyFile {
 	private CheckboxTableViewer viewer;
 	private List<BibtexEntry> items;
 	@Inject
-	IBibtexEntryConverter converter;
+	IBibtexImporter converter;
 	@Inject
 	private ESelectionService selectionService;
 	
@@ -71,7 +71,7 @@ public class BibliographyFile {
 	    table.setLinesVisible(true);
 
 	    viewer.setContentProvider(new ArrayContentProvider());
-	    viewer.setInput(converter.convertFile(fileName).toArray());
+	    viewer.setInput(converter.importFromFile(fileName).toArray());
 	    
 	    viewer.addSelectionChangedListener(new ISelectionChangedListener() {
 			@Override

@@ -5,7 +5,7 @@
 -->
 
 <plugin>
-   <extension-point id="BibtexEntryConverter" name="BibtexEntryConverter" schema="schema/BibtexEntryConverter.exsd"/>
+   <extension-point id="pl.edu.agh.toik.aghbibtex.model" name="Model" schema="schema/pl.edu.agh.toik.aghbibtex.model.exsd"/>
 
    <extension point="org.eclipse.emf.ecore.generated_package">
       <!-- @generated bibtex -->
