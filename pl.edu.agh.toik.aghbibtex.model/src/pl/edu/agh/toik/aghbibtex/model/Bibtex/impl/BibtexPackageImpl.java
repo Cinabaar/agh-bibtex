@@ -183,6 +183,15 @@ public class BibtexPackageImpl extends EPackageImpl implements BibtexPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getBibtexEntry_PublicationFilePath() {
+		return (EAttribute)bibtexEntryEClass.getEStructuralFeatures().get(8);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EOperation getBibtexEntry__ToString() {
 		return bibtexEntryEClass.getEOperations().get(0);
 	}
@@ -251,6 +260,7 @@ public class BibtexPackageImpl extends EPackageImpl implements BibtexPackage {
 		createEAttribute(bibtexEntryEClass, BIBTEX_ENTRY__PAGES);
 		createEAttribute(bibtexEntryEClass, BIBTEX_ENTRY__YEAR);
 		createEReference(bibtexEntryEClass, BIBTEX_ENTRY__TAGS);
+		createEAttribute(bibtexEntryEClass, BIBTEX_ENTRY__PUBLICATION_FILE_PATH);
 		createEOperation(bibtexEntryEClass, BIBTEX_ENTRY___TO_STRING);
 
 		tagEClass = createEClass(TAG);
@@ -297,6 +307,7 @@ public class BibtexPackageImpl extends EPackageImpl implements BibtexPackage {
 		initEAttribute(getBibtexEntry_Pages(), ecorePackage.getEString(), "Pages", null, 0, 1, BibtexEntry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getBibtexEntry_Year(), ecorePackage.getEString(), "Year", null, 0, 1, BibtexEntry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getBibtexEntry_Tags(), this.getTag(), null, "Tags", null, 0, -1, BibtexEntry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getBibtexEntry_PublicationFilePath(), ecorePackage.getEString(), "publicationFilePath", null, 0, 1, BibtexEntry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEOperation(getBibtexEntry__ToString(), ecorePackage.getEString(), "toString", 0, 1, IS_UNIQUE, IS_ORDERED);
 

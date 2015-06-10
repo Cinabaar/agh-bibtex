@@ -140,13 +140,22 @@ public interface BibtexPackage extends EPackage {
 	int BIBTEX_ENTRY__TAGS = 7;
 
 	/**
+	 * The feature id for the '<em><b>Publication File Path</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BIBTEX_ENTRY__PUBLICATION_FILE_PATH = 8;
+
+	/**
 	 * The number of structural features of the '<em>Entry</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int BIBTEX_ENTRY_FEATURE_COUNT = 8;
+	int BIBTEX_ENTRY_FEATURE_COUNT = 9;
 
 	/**
 	 * The operation id for the '<em>To String</em>' operation.
@@ -312,6 +321,17 @@ public interface BibtexPackage extends EPackage {
 	EReference getBibtexEntry_Tags();
 
 	/**
+	 * Returns the meta object for the attribute '{@link pl.edu.agh.toik.aghbibtex.model.Bibtex.BibtexEntry#getPublicationFilePath <em>Publication File Path</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Publication File Path</em>'.
+	 * @see pl.edu.agh.toik.aghbibtex.model.Bibtex.BibtexEntry#getPublicationFilePath()
+	 * @see #getBibtexEntry()
+	 * @generated
+	 */
+	EAttribute getBibtexEntry_PublicationFilePath();
+
+	/**
 	 * Returns the meta object for the '{@link pl.edu.agh.toik.aghbibtex.model.Bibtex.BibtexEntry#toString() <em>To String</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -448,6 +468,14 @@ public interface BibtexPackage extends EPackage {
 		 * @generated
 		 */
 		EReference BIBTEX_ENTRY__TAGS = eINSTANCE.getBibtexEntry_Tags();
+
+		/**
+		 * The meta object literal for the '<em><b>Publication File Path</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute BIBTEX_ENTRY__PUBLICATION_FILE_PATH = eINSTANCE.getBibtexEntry_PublicationFilePath();
 
 		/**
 		 * The meta object literal for the '<em><b>To String</b></em>' operation.

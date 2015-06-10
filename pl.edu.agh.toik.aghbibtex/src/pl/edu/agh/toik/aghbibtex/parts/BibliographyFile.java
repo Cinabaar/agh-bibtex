@@ -1,50 +1,34 @@
 package pl.edu.agh.toik.aghbibtex.parts;
 
-import java.io.File;
-import java.io.FileReader;
-import java.io.Reader;
-import java.lang.reflect.Field;
-import java.lang.reflect.Modifier;
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
 import javax.inject.Inject;
 import javax.inject.Named;
 
-import org.eclipse.e4.core.contexts.IEclipseContext;
 import org.eclipse.e4.core.di.annotations.Optional;
 import org.eclipse.e4.ui.di.Persist;
 import org.eclipse.e4.ui.di.UIEventTopic;
 import org.eclipse.e4.ui.model.application.ui.MDirtyable;
 import org.eclipse.e4.ui.workbench.modeling.ESelectionService;
 import org.eclipse.jface.viewers.ArrayContentProvider;
-import org.eclipse.jface.viewers.CheckStateChangedEvent;
 import org.eclipse.jface.viewers.CheckboxTableViewer;
 import org.eclipse.jface.viewers.ColumnLabelProvider;
-import org.eclipse.jface.viewers.ICheckStateListener;
 import org.eclipse.jface.viewers.ISelectionChangedListener;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.viewers.SelectionChangedEvent;
 import org.eclipse.jface.viewers.TableViewer;
 import org.eclipse.jface.viewers.TableViewerColumn;
 import org.eclipse.swt.SWT;
-import org.eclipse.swt.events.SelectionEvent;
-import org.eclipse.swt.events.SelectionListener;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.widgets.Composite;
-import org.eclipse.swt.widgets.Event;
-import org.eclipse.swt.widgets.Listener;
 import org.eclipse.swt.widgets.Table;
 import org.eclipse.swt.widgets.TableColumn;
-import org.eclipse.swt.widgets.TableItem;
 
 import pl.edu.agh.toik.aghbibtex.model.IBibtexImporter;
 import pl.edu.agh.toik.aghbibtex.model.Bibtex.BibtexEntry;
-import pl.edu.agh.toik.aghbibtex.model.Bibtex.impl.BibtexEntryImpl;
 import pl.edu.agh.toik.aghbibtex.persistence.IBibtexRepository;
-import pl.edu.agh.toik.aghbibtex.util.StringUtil;
 
 public class BibliographyFile {
 	private String fileName;
@@ -62,10 +46,8 @@ public class BibliographyFile {
 	@PostConstruct
 	public void createControls(Composite parent, @Named("fileName") String fileName) 
 	{
-		
 		this.fileName = fileName;
 		createViewer(parent);
-
 	}
 	
 	@Inject
@@ -84,7 +66,6 @@ public class BibliographyFile {
 
 	    viewer.setContentProvider(new ArrayContentProvider());
 	    viewer.setInput(converter.importFromFile(fileName).toArray());
-	    
 	    viewer.addSelectionChangedListener(new ISelectionChangedListener() {
 			@Override
 			public void selectionChanged(SelectionChangedEvent event) {

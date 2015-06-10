@@ -34,7 +34,8 @@ public class AssignTagDialog extends TitleAreaDialog {
 	private Text tagName;
 	private IBibtexRepository repository;
 
-	public AssignTagDialog(List<BibtexEntry> entries, List<Tag> tags, IBibtexRepository repository) {
+	public AssignTagDialog(List<BibtexEntry> entries, List<Tag> tags,
+			IBibtexRepository repository) {
 		super((Shell) null);
 		this.repository = repository;
 		this.entries = entries;
@@ -53,72 +54,86 @@ public class AssignTagDialog extends TitleAreaDialog {
 		setMessage("Assign bibliography to existing or new tag",
 				IMessageProvider.INFORMATION);
 	}
-	
-	  @Override
-	  protected Control createDialogArea(Composite parent) {
-	    Composite area = (Composite) super.createDialogArea(parent);
-	    Composite container = new Composite(area, SWT.NONE);
-	    container.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true));
-	    GridLayout layout = new GridLayout(2, false);
-	    container.setLayout(layout);
 
-	    createTagName(container);
-	    createTagCombobox(container);
+	@Override
+	protected Control createDialogArea(Composite parent) {
+		Composite area = (Composite) super.createDialogArea(parent);
+		Composite container = new Composite(area, SWT.NONE);
+		container.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true));
+		GridLayout layout = new GridLayout(2, false);
+		container.setLayout(layout);
 
-	    return area;
-	  }
+		createTagName(container);
+		createTagCombobox(container);
+
+		return area;
+	}
 
 	protected void createTagName(Composite parent) {
 		Label tagLabel = new Label(parent, SWT.NONE);
 		tagLabel.setText("New tag name: ");
 		tagName = new Text(parent, SWT.BORDER);
 		tagName.addKeyListener(new KeyListener() {
-			
+
 			@Override
 			public void keyReleased(KeyEvent e) {
 			}
-			
+
 			@Override
 			public void keyPressed(KeyEvent e) {
-				comboViewer.setSelection(null);
+				try {
+					comboViewer.setSelection(null);
+				} catch (Throwable t) {
+
+				}
 			}
 		});
 	}
-	
+
 	protected void createTagCombobox(Composite parent) {
 		Label tagLabel = new Label(parent, SWT.NONE);
 		tagLabel.setText("Choose existing tag: ");
 		comboViewer = new ComboViewer(parent, SWT.BORDER);
-		comboViewer.getCombo().setLayoutData(new GridData(GridData.FILL_HORIZONTAL));
-		
-		comboViewer.setContentProvider(new IStructuredContentProvider() {		
+		comboViewer.getCombo().setLayoutData(
+				new GridData(GridData.FILL_HORIZONTAL));
+
+		comboViewer.setContentProvider(new IStructuredContentProvider() {
 			@Override
-			public void inputChanged(Viewer viewer, Object oldInput, Object newInput) { }
+			public void inputChanged(Viewer viewer, Object oldInput,
+					Object newInput) {
+			}
+
 			@Override
-			public void dispose() { }
+			public void dispose() {
+			}
+
 			@Override
 			public Object[] getElements(Object inputElement) {
-				return ((List<Tag>)inputElement).toArray();
+				return ((List<Tag>) inputElement).toArray();
 			}
 		});
-		
-		comboViewer.addSelectionChangedListener(new ISelectionChangedListener() {	
-			@Override
-			public void selectionChanged(SelectionChangedEvent event) {
-				IStructuredSelection selection = (IStructuredSelection)event.getSelection();
-				Tag t = (Tag)selection.getFirstElement();
-				tagName.setText(t.getName());
-			}
-		});
-		
+
+		comboViewer
+				.addSelectionChangedListener(new ISelectionChangedListener() {
+					@Override
+					public void selectionChanged(SelectionChangedEvent event) {
+						IStructuredSelection selection = (IStructuredSelection) event
+								.getSelection();
+						Tag t = (Tag) selection.getFirstElement();
+						if (t != null) {
+							tagName.setText(t.getName());
+						}
+					}
+				});
+
 		comboViewer.setInput(tags);
-		
+
 	}
-	
+
 	@Override
 	protected void okPressed() {
 		repository.assignTagToEntries(entries, tagName.getText());
-		
+
 		super.okPressed();
 	}
 

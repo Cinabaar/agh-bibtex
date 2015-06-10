@@ -6,6 +6,7 @@ import java.util.List;
 import javax.annotation.PostConstruct;
 import javax.inject.Inject;
 
+import org.eclipse.e4.core.services.events.IEventBroker;
 import org.eclipse.jface.dialogs.Dialog;
 import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.jface.viewers.ComboViewer;
@@ -36,6 +37,9 @@ public class TagView {
 	
 	@Inject
 	IBibtexRepository repository;
+	
+	@Inject
+	IEventBroker eventBroker;
 	
 	ListViewer listViewer;
 	ComboViewer comboViewer;
@@ -88,13 +92,8 @@ public class TagView {
 		listViewer.addDoubleClickListener(new IDoubleClickListener() {
 			
 			@Override
-			public void doubleClick(DoubleClickEvent event) {
-				List<BibtexEntry> selected = new ArrayList<BibtexEntry>();
-				for (Object o : ((IStructuredSelection)event.getSelection()).toArray()) {
-					selected.add((BibtexEntry)o);
-				}
-				
-					
+			public void doubleClick(DoubleClickEvent event) {	
+				eventBroker.send("bibliographySelected", (BibtexEntry) ((IStructuredSelection)event.getSelection()).getFirstElement());
 			}
 		});
 		

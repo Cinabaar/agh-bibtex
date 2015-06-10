@@ -22,6 +22,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link pl.edu.agh.toik.aghbibtex.model.Bibtex.BibtexEntry#getPages <em>Pages</em>}</li>
  *   <li>{@link pl.edu.agh.toik.aghbibtex.model.Bibtex.BibtexEntry#getYear <em>Year</em>}</li>
  *   <li>{@link pl.edu.agh.toik.aghbibtex.model.Bibtex.BibtexEntry#getTags <em>Tags</em>}</li>
+ *   <li>{@link pl.edu.agh.toik.aghbibtex.model.Bibtex.BibtexEntry#getPublicationFilePath <em>Publication File Path</em>}</li>
  * </ul>
  * </p>
  *
@@ -227,6 +228,32 @@ public interface BibtexEntry extends EObject {
 	 * @generated
 	 */
 	EList<Tag> getTags();
+
+	/**
+	 * Returns the value of the '<em><b>Publication File Path</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Publication File Path</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Publication File Path</em>' attribute.
+	 * @see #setPublicationFilePath(String)
+	 * @see pl.edu.agh.toik.aghbibtex.model.Bibtex.BibtexPackage#getBibtexEntry_PublicationFilePath()
+	 * @model
+	 * @generated
+	 */
+	String getPublicationFilePath();
+
+	/**
+	 * Sets the value of the '{@link pl.edu.agh.toik.aghbibtex.model.Bibtex.BibtexEntry#getPublicationFilePath <em>Publication File Path</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Publication File Path</em>' attribute.
+	 * @see #getPublicationFilePath()
+	 * @generated
+	 */
+	void setPublicationFilePath(String value);
 
 	/**
 	 * <!-- begin-user-doc -->

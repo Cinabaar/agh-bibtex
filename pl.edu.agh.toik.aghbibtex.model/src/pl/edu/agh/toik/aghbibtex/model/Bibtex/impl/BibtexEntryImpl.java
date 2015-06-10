@@ -6,14 +6,10 @@ import java.lang.reflect.InvocationTargetException;
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EClass;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
 import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 
 import pl.edu.agh.toik.aghbibtex.model.Bibtex.BibtexEntry;
@@ -35,6 +31,7 @@ import pl.edu.agh.toik.aghbibtex.model.Bibtex.Tag;
  *   <li>{@link pl.edu.agh.toik.aghbibtex.model.Bibtex.impl.BibtexEntryImpl#getPages <em>Pages</em>}</li>
  *   <li>{@link pl.edu.agh.toik.aghbibtex.model.Bibtex.impl.BibtexEntryImpl#getYear <em>Year</em>}</li>
  *   <li>{@link pl.edu.agh.toik.aghbibtex.model.Bibtex.impl.BibtexEntryImpl#getTags <em>Tags</em>}</li>
+ *   <li>{@link pl.edu.agh.toik.aghbibtex.model.Bibtex.impl.BibtexEntryImpl#getPublicationFilePath <em>Publication File Path</em>}</li>
  * </ul>
  * </p>
  *
@@ -190,6 +187,26 @@ public class BibtexEntryImpl extends MinimalEObjectImpl.Container implements Bib
 	 * @ordered
 	 */
 	protected EList<Tag> tags;
+
+	/**
+	 * The default value of the '{@link #getPublicationFilePath() <em>Publication File Path</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getPublicationFilePath()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String PUBLICATION_FILE_PATH_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getPublicationFilePath() <em>Publication File Path</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getPublicationFilePath()
+	 * @generated
+	 * @ordered
+	 */
+	protected String publicationFilePath = PUBLICATION_FILE_PATH_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -374,6 +391,27 @@ public class BibtexEntryImpl extends MinimalEObjectImpl.Container implements Bib
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public String getPublicationFilePath() {
+		return publicationFilePath;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setPublicationFilePath(String newPublicationFilePath) {
+		String oldPublicationFilePath = publicationFilePath;
+		publicationFilePath = newPublicationFilePath;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, BibtexPackage.BIBTEX_ENTRY__PUBLICATION_FILE_PATH, oldPublicationFilePath, publicationFilePath));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
@@ -393,6 +431,8 @@ public class BibtexEntryImpl extends MinimalEObjectImpl.Container implements Bib
 				return getYear();
 			case BibtexPackage.BIBTEX_ENTRY__TAGS:
 				return getTags();
+			case BibtexPackage.BIBTEX_ENTRY__PUBLICATION_FILE_PATH:
+				return getPublicationFilePath();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -431,6 +471,9 @@ public class BibtexEntryImpl extends MinimalEObjectImpl.Container implements Bib
 				getTags().clear();
 				getTags().addAll((Collection<? extends Tag>)newValue);
 				return;
+			case BibtexPackage.BIBTEX_ENTRY__PUBLICATION_FILE_PATH:
+				setPublicationFilePath((String)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -467,6 +510,9 @@ public class BibtexEntryImpl extends MinimalEObjectImpl.Container implements Bib
 			case BibtexPackage.BIBTEX_ENTRY__TAGS:
 				getTags().clear();
 				return;
+			case BibtexPackage.BIBTEX_ENTRY__PUBLICATION_FILE_PATH:
+				setPublicationFilePath(PUBLICATION_FILE_PATH_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -495,6 +541,8 @@ public class BibtexEntryImpl extends MinimalEObjectImpl.Container implements Bib
 				return YEAR_EDEFAULT == null ? year != null : !YEAR_EDEFAULT.equals(year);
 			case BibtexPackage.BIBTEX_ENTRY__TAGS:
 				return tags != null && !tags.isEmpty();
+			case BibtexPackage.BIBTEX_ENTRY__PUBLICATION_FILE_PATH:
+				return PUBLICATION_FILE_PATH_EDEFAULT == null ? publicationFilePath != null : !PUBLICATION_FILE_PATH_EDEFAULT.equals(publicationFilePath);
 		}
 		return super.eIsSet(featureID);
 	}
