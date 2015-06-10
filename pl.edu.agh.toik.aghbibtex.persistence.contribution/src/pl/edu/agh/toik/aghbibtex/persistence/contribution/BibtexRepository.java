@@ -33,7 +33,7 @@ public class BibtexRepository implements IBibtexRepository
 		final Properties props = new Properties();
 		props.setProperty(Environment.DRIVER, "org.hsqldb.jdbcDriver");
 		props.setProperty(Environment.USER, "sa");
-		props.setProperty(Environment.URL, "jdbc:hsqldb:file:library");
+		props.setProperty(Environment.URL, "jdbc:hsqldb:file:library2");
 		props.setProperty(Environment.PASS, "");
 		props.setProperty(Environment.DIALECT, MyHSQLDialect.class.getName());
 		props.setProperty(PersistenceOptions.CASCADE_POLICY_ON_NON_CONTAINMENT, "REFRESH,PERSIST,MERGE");
@@ -121,8 +121,7 @@ public class BibtexRepository implements IBibtexRepository
 		endTransaction(session);
 	}
 	
-	public BibtexEntry createBibtexEntry()
-	{
+	public BibtexEntry createBibtexEntry() {
 		return BibtexFactory.eINSTANCE.createBibtexEntry();
 	}
 	

@@ -299,7 +299,7 @@ public class BibtexPackageImpl extends EPackageImpl implements BibtexPackage {
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(bibtexEntryEClass, BibtexEntry.class, "BibtexEntry", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getBibtexEntry_Text(), ecorePackage.getEString(), "Text", null, 0, 1, BibtexEntry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getBibtexEntry_Text(), ecorePackage.getEString(), "Text", "", 0, 1, BibtexEntry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getBibtexEntry_Title(), ecorePackage.getEString(), "Title", null, 0, 1, BibtexEntry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getBibtexEntry_Author(), ecorePackage.getEString(), "Author", null, 0, 1, BibtexEntry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getBibtexEntry_Journal(), ecorePackage.getEString(), "Journal", null, 0, 1, BibtexEntry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -318,6 +318,26 @@ public class BibtexPackageImpl extends EPackageImpl implements BibtexPackage {
 
 		// Create resource
 		createResource(eNS_URI);
+
+		// Create annotations
+		// teneo.jpa
+		createTeneoAnnotations();
+	}
+
+	/**
+	 * Initializes the annotations for <b>teneo.jpa</b>.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void createTeneoAnnotations() {
+		String source = "teneo.jpa";	
+		addAnnotation
+		  (getBibtexEntry_Text(), 
+		   source, 
+		   new String[] {
+			 "value", "@Lob\r\n@Column(length=65535)"
+		   });
 	}
 
 } //BibtexPackageImpl

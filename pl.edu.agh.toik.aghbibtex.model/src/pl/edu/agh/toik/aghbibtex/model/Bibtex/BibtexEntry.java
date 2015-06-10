@@ -33,6 +33,7 @@ import org.eclipse.emf.ecore.EObject;
 public interface BibtexEntry extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Text</b></em>' attribute.
+	 * The default value is <code>""</code>.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Text</em>' attribute isn't clear,
@@ -42,7 +43,8 @@ public interface BibtexEntry extends EObject {
 	 * @return the value of the '<em>Text</em>' attribute.
 	 * @see #setText(String)
 	 * @see pl.edu.agh.toik.aghbibtex.model.Bibtex.BibtexPackage#getBibtexEntry_Text()
-	 * @model
+	 * @model default=""
+	 *        annotation="teneo.jpa value='@Lob\r\n@Column(length=65535)'"
 	 * @generated
 	 */
 	String getText();

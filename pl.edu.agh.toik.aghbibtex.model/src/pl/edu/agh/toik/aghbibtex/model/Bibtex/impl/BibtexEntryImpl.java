@@ -46,7 +46,7 @@ public class BibtexEntryImpl extends MinimalEObjectImpl.Container implements Bib
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String TEXT_EDEFAULT = null;
+	protected static final String TEXT_EDEFAULT = "";
 
 	/**
 	 * The cached value of the '{@link #getText() <em>Text</em>}' attribute.

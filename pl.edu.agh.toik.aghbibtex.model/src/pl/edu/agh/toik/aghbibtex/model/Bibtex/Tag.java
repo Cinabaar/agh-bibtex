@@ -21,6 +21,9 @@ import org.eclipse.emf.ecore.EObject;
  * @generated
  */
 public interface Tag extends EObject {
+	
+	public static final String UNASSIGNED = "unassigned";
+	
 	/**
 	 * Returns the value of the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->

@@ -58,12 +58,13 @@ public class BibliographyFile {
 	
 	private void createViewer(Composite parent) {
 	    viewer = CheckboxTableViewer.newCheckList(parent, SWT.H_SCROLL
-	        | SWT.V_SCROLL | SWT.BORDER);
+	        | SWT.V_SCROLL | SWT.BORDER | SWT.FULL_SELECTION);
 	    createColumns(parent, viewer);
 	    final Table table = viewer.getTable();
 	    table.setHeaderVisible(true);
 	    table.setLinesVisible(true);
 
+	    
 	    viewer.setContentProvider(new ArrayContentProvider());
 	    viewer.setInput(converter.importFromFile(fileName).toArray());
 	    viewer.addSelectionChangedListener(new ISelectionChangedListener() {
@@ -86,7 +87,7 @@ public class BibliographyFile {
 	private void createColumns(final Composite parent, final TableViewer viewer) {
 	    String[] titles = { "Title", "Author", "Journal", "Volume", "Pages", "Year"};
 	    int[] bounds = { 300, 100, 100, 100, 100, 100};
-
+	    
 	    // first column is for the first name
 	    TableViewerColumn col = createTableViewerColumn("", 20, 0);
 	    col.setLabelProvider(new ColumnLabelProvider() {
@@ -96,7 +97,7 @@ public class BibliographyFile {
 	      }
 	    });
 	    
-	    col = createTableViewerColumn(titles[0], bounds[0], 1);
+	    col = createTableViewerColumn(titles[0], bounds[0], 0);
 	    col.setLabelProvider(new ColumnLabelProvider() {
 	      @Override
 	      public String getText(Object element) {

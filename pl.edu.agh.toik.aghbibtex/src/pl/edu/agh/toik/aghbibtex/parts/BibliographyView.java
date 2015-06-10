@@ -20,11 +20,17 @@ import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.viewers.SelectionChangedEvent;
 import org.eclipse.jface.viewers.TableViewer;
 import org.eclipse.jface.viewers.TableViewerColumn;
+import org.eclipse.jface.viewers.ViewerCell;
 import org.eclipse.swt.SWT;
+import org.eclipse.swt.custom.TableEditor;
+import org.eclipse.swt.events.SelectionEvent;
+import org.eclipse.swt.events.SelectionListener;
 import org.eclipse.swt.layout.GridData;
+import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Table;
 import org.eclipse.swt.widgets.TableColumn;
+import org.eclipse.swt.widgets.TableItem;
 
 import pl.edu.agh.toik.aghbibtex.model.IBibtexImporter;
 import pl.edu.agh.toik.aghbibtex.model.Bibtex.BibtexEntry;
@@ -78,7 +84,7 @@ public class BibliographyView {
 	private void createViewer(Composite parent) {
 		viewerInput = new HashSet<BibtexEntry>();
 	    viewer = new TableViewer(parent, SWT.H_SCROLL
-	        | SWT.V_SCROLL | SWT.BORDER);
+	        | SWT.V_SCROLL | SWT.BORDER | SWT.FULL_SELECTION);
 	    createColumns(parent, viewer);
 	    final Table table = viewer.getTable();
 	    table.setHeaderVisible(true);
@@ -105,8 +111,8 @@ public class BibliographyView {
 	    viewer.getControl().setLayoutData(gridData);
 	  }
 	private void createColumns(final Composite parent, final TableViewer viewer) {
-	    String[] titles = { "Title", "Author", "Journal", "Volume", "Pages", "Year"};
-	    int[] bounds = { 300, 100, 100, 100, 100, 100};
+	    String[] titles = { "Title", "Author", "Journal", "Volume", "Pages", "Year", "Publication path", "Show file"};
+	    int[] bounds = { 300, 100, 100, 100, 100, 100, 100, 100};
 
 	    TableViewerColumn col = createTableViewerColumn(titles[0], bounds[0], 0);
 	    col.setLabelProvider(new ColumnLabelProvider() {
@@ -162,6 +168,42 @@ public class BibliographyView {
 		        return p.getYear();
 		      }
 		    });
+	    col = createTableViewerColumn(titles[6], bounds[6], 6);
+	    col.setLabelProvider(new ColumnLabelProvider() {
+		      @Override
+		      public String getText(Object element) {
+		    	  BibtexEntry p = (BibtexEntry) element;
+		        return p.getPublicationFilePath();
+		      }
+		    });
+//	    col = createTableViewerColumn(titles[7], bounds[7], 7);
+//	    col.setLabelProvider(new ColumnLabelProvider() {
+//	    	@Override
+//	        public void update(final ViewerCell cell) {
+//	           TableItem item = new TableItem(viewer.getTable(),SWT.NONE);
+//	           Button button = new Button(viewer.getTable(),SWT.NONE);
+//	           button.setText("Show file");
+//	           viewer.getControl().setBackground(item.getBackground());
+//	           TableEditor editor = new TableEditor(viewer.getTable());
+//	           editor.grabHorizontal  = true;
+//	           editor.grabVertical = true;
+//	           editor.setEditor(button , item, 7);
+//	           editor.layout();
+//	           
+//	           button.addSelectionListener(new SelectionListener() {
+//				
+//				@Override
+//				public void widgetSelected(SelectionEvent e) {
+//					String path = ((BibtexEntry) cell.getElement()).getPublicationFilePath();
+//					System.out.println(path);
+//				}
+//				
+//				@Override
+//				public void widgetDefaultSelected(SelectionEvent e) {
+//				}
+//			});
+//	           }
+//		    });
 	    
 
 	  }
