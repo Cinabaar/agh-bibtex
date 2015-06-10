@@ -7,6 +7,7 @@ import javax.annotation.PostConstruct;
 import javax.inject.Inject;
 
 import org.eclipse.jface.dialogs.Dialog;
+import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.jface.viewers.ComboViewer;
 import org.eclipse.jface.viewers.DoubleClickEvent;
 import org.eclipse.jface.viewers.IDoubleClickListener;
@@ -17,9 +18,13 @@ import org.eclipse.jface.viewers.ListViewer;
 import org.eclipse.jface.viewers.SelectionChangedEvent;
 import org.eclipse.jface.viewers.Viewer;
 import org.eclipse.swt.SWT;
+import org.eclipse.swt.events.SelectionEvent;
+import org.eclipse.swt.events.SelectionListener;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
+import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Composite;
+import org.eclipse.swt.widgets.MessageBox;
 
 import pl.edu.agh.toik.aghbibtex.model.Bibtex.BibtexEntry;
 import pl.edu.agh.toik.aghbibtex.model.Bibtex.BibtexFactory;
@@ -34,6 +39,7 @@ public class TagView {
 	
 	ListViewer listViewer;
 	ComboViewer comboViewer;
+	Button assignButton;
 	
 	private List<Tag> tags;
 	
@@ -68,7 +74,6 @@ public class TagView {
 			
 		listViewer = new ListViewer(parent);
 		listViewer.getList().setLayoutData(new GridData(GridData.FILL_BOTH));
-		parent.pack();
 		listViewer.setContentProvider(new IStructuredContentProvider() {
 			@Override
 			public void inputChanged(Viewer viewer, Object oldInput, Object newInput) {	}
@@ -89,12 +94,39 @@ public class TagView {
 					selected.add((BibtexEntry)o);
 				}
 				
-				Dialog dialog = new AssignTagDialog(selected, tags, repository);
-				dialog.setBlockOnOpen(true);
-				dialog.open();
-				refreshComboBox();
+					
 			}
 		});
+		
+		assignButton = new Button(parent, SWT.NONE);
+		assignButton.setText("Assign bibliographies to tag");
+		assignButton.setLayoutData(new GridData(GridData.FILL_HORIZONTAL));
+		assignButton.addSelectionListener(new SelectionListener() {
+			
+			@Override
+			public void widgetSelected(SelectionEvent e) {
+				List<BibtexEntry> selected = new ArrayList<BibtexEntry>();
+				for (Object o : ((IStructuredSelection)listViewer.getSelection()).toArray()) {
+					selected.add((BibtexEntry)o);
+				}
+				
+				if (selected.size() > 0) {
+					Dialog dialog = new AssignTagDialog(selected, tags, repository);
+					dialog.setBlockOnOpen(true);
+					dialog.open();
+					refreshComboBox(); 
+				} else {
+					MessageDialog.openWarning(null, "Empty selection", "Choose some bibliographies from the list.");
+				}
+			}
+			
+			@Override
+			public void widgetDefaultSelected(SelectionEvent e) {
+			}
+		});
+		
+		parent.pack();
+		
 	}
 	
 	private void refreshComboBox() {
