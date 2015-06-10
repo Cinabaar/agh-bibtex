@@ -10,6 +10,7 @@ import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.teneo.PersistenceOptions;
 import org.eclipse.emf.teneo.hibernate.HbDataStore;
 import org.eclipse.emf.teneo.hibernate.HbHelper;
+import org.hibernate.Hibernate;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -32,9 +33,9 @@ public class BibtexRepository implements IBibtexRepository
 		final Properties props = new Properties();
 		props.setProperty(Environment.DRIVER, "org.hsqldb.jdbcDriver");
 		props.setProperty(Environment.USER, "sa");
-		props.setProperty(Environment.URL, "jdbc:hsqldb:file:library");
+		props.setProperty(Environment.URL, "jdbc:hsqldb:file:E:/library");
 		props.setProperty(Environment.PASS, "");
-		props.setProperty(Environment.DIALECT, org.hibernate.dialect.HSQLDialect.class.getName());
+		props.setProperty(Environment.DIALECT, MyHSQLDialect.class.getName());
 		props.setProperty(PersistenceOptions.CASCADE_POLICY_ON_NON_CONTAINMENT, "REFRESH,PERSIST,MERGE");
 		String hbName = "Library";
 		final HbDataStore hbds = HbHelper.INSTANCE.createRegisterDataStore(hbName);
@@ -106,6 +107,20 @@ public class BibtexRepository implements IBibtexRepository
 		endTransaction(session);
 	}
 	
+	public void assignTagToEntries(List<BibtexEntry> entries, String tagName) {
+		
+		Tag tag = getOrCreateTag(tagName);
+		
+		
+		Session session = beginTransaction();
+		for (BibtexEntry entry : entries) {
+			entry.getTags().add(tag);
+			session.saveOrUpdate(entry);
+		}
+		
+		endTransaction(session);
+	}
+	
 	public BibtexEntry createBibtexEntry()
 	{
 		return BibtexFactory.eINSTANCE.createBibtexEntry();
@@ -136,8 +151,19 @@ public class BibtexRepository implements IBibtexRepository
 	@Override
 	public List<BibtexEntry> getBibteEntriesWithTag(Tag tag) {
 		Session session = beginTransaction();
-		Query query = session.createQuery("select entry from BibtexEntry as entry left outer join entry.Tags as tag where tag.Name = 'ala'");
+		//tag.get
+		Query query = null;
+		if ("Unassigned".equals(tag.getName())) {
+			query = session.createQuery("select entry from BibtexEntry as entry left outer join entry.Tags as tag where tag is null");	
+		} else {
+			query = session.createQuery("select entry from BibtexEntry as entry left outer join entry.Tags as tag where tag.Name = '" + tag.getName()+"'");
+		}
 		List<BibtexEntry> entries = query.list();
+		if (entries != null) {
+			for (BibtexEntry entry : entries) {
+				Hibernate.initialize(entry.getTags());
+			}
+		}
 		endTransaction(session);
 		return entries;
 	}

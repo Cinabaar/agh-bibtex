@@ -15,6 +15,7 @@ public interface IBibtexRepository
 	
 	void saveBibtexEntries(List<BibtexEntry> entries);
 	void saveBibtexEntry(BibtexEntry entry);
+	void assignTagToEntries(List<BibtexEntry> entries, String tagName);
 	
 	
 }

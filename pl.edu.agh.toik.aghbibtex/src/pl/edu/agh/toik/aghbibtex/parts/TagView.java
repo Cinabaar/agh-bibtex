@@ -1,27 +1,28 @@
 package pl.edu.agh.toik.aghbibtex.parts;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
 import javax.inject.Inject;
 
+import org.eclipse.jface.dialogs.Dialog;
 import org.eclipse.jface.viewers.ComboViewer;
+import org.eclipse.jface.viewers.DoubleClickEvent;
+import org.eclipse.jface.viewers.IDoubleClickListener;
 import org.eclipse.jface.viewers.ISelectionChangedListener;
 import org.eclipse.jface.viewers.IStructuredContentProvider;
-import org.eclipse.jface.viewers.IContentProvider;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.viewers.ListViewer;
 import org.eclipse.jface.viewers.SelectionChangedEvent;
 import org.eclipse.jface.viewers.Viewer;
 import org.eclipse.swt.SWT;
-import org.eclipse.swt.events.SelectionEvent;
-import org.eclipse.swt.events.SelectionListener;
 import org.eclipse.swt.layout.GridData;
-import org.eclipse.swt.layout.RowData;
-import org.eclipse.swt.layout.RowLayout;
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Composite;
 
+import pl.edu.agh.toik.aghbibtex.model.Bibtex.BibtexEntry;
+import pl.edu.agh.toik.aghbibtex.model.Bibtex.BibtexFactory;
 import pl.edu.agh.toik.aghbibtex.model.Bibtex.Tag;
 import pl.edu.agh.toik.aghbibtex.persistence.IBibtexRepository;
 
@@ -33,6 +34,8 @@ public class TagView {
 	
 	ListViewer listViewer;
 	ComboViewer comboViewer;
+	
+	private List<Tag> tags;
 	
 	@PostConstruct
 	public void createContents(Composite parent)
@@ -61,8 +64,7 @@ public class TagView {
 				listViewer.setInput(t);
 			}
 		});
-		List<Tag> tags = repository.getAllTags();
-		comboViewer.setInput(tags);
+		refreshComboBox();
 			
 		listViewer = new ListViewer(parent);
 		listViewer.getList().setLayoutData(new GridData(GridData.FILL_BOTH));
@@ -77,6 +79,30 @@ public class TagView {
 				return repository.getBibteEntriesWithTag(((Tag)inputElement)).toArray();			
 			}
 		});
+		
+		listViewer.addDoubleClickListener(new IDoubleClickListener() {
+			
+			@Override
+			public void doubleClick(DoubleClickEvent event) {
+				List<BibtexEntry> selected = new ArrayList<BibtexEntry>();
+				for (Object o : ((IStructuredSelection)event.getSelection()).toArray()) {
+					selected.add((BibtexEntry)o);
+				}
+				
+				Dialog dialog = new AssignTagDialog(selected, tags, repository);
+				dialog.setBlockOnOpen(true);
+				dialog.open();
+				refreshComboBox();
+			}
+		});
+	}
+	
+	private void refreshComboBox() {
+		tags = repository.getAllTags();
+		Tag unassignedTag = BibtexFactory.eINSTANCE.createTag();
+		unassignedTag.setName("Unassigned");
+		tags.add(unassignedTag);
+		comboViewer.setInput(tags);
 	}
 	
 }
