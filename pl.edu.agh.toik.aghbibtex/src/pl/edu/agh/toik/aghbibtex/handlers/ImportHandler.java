@@ -20,12 +20,16 @@ import org.eclipse.swt.widgets.Shell;
 
 public class ImportHandler {
 		
+	
 	@Execute
 	public void execute(Shell shell, MApplication app, EModelService modelService, EPartService partService) {
 		FileDialog fileDialog = new FileDialog(shell);
 		fileDialog.setFilterExtensions(new String[] {"*.bibtex;*.bib"});
 		String fileName = fileDialog.open();
-
+		
+		if(fileName == null || fileName.length() == 0)
+			return;
+		
 		MPartStack stack = (MPartStack) modelService.find("pl.edu.agh.toik.aghbibtex.partstack.BibliographyPS", app);
 		MPart part = modelService.createModelElement(MPart.class);
 		IEclipseContext context = app.getContext();
