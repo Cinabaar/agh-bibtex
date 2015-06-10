@@ -8,7 +8,9 @@ import java.util.Set;
 import javax.annotation.PostConstruct;
 import javax.inject.Inject;
 
+import org.eclipse.e4.core.contexts.IEclipseContext;
 import org.eclipse.e4.core.di.annotations.Optional;
+import org.eclipse.e4.core.services.events.IEventBroker;
 import org.eclipse.e4.ui.di.UIEventTopic;
 import org.eclipse.e4.ui.workbench.modeling.ESelectionService;
 import org.eclipse.jface.viewers.ArrayContentProvider;
@@ -38,8 +40,11 @@ public class BibliographyView {
 	private ESelectionService selectionService;
 	@Inject
 	private IBibtexRepository repository;
+	@Inject
+	IEventBroker eventBroker;
 	
 	private Set<BibtexEntry> viewerInput;
+	
 	
 	@PostConstruct
 	public void createControls(Composite parent) 
@@ -47,10 +52,18 @@ public class BibliographyView {
 		createViewer(parent);
 	}
 	
+	private void refreshTable()
+	{
+		System.out.println("aaaaaa");
+		//context.set("currentBibliography", viewerInput);
+		eventBroker.send("currentBibliography", viewerInput);
+		viewer.refresh();
+	}
+	
 	@Inject
 	@Optional
 	private void refreshTable(@UIEventTopic("refreshTable") String data) {
-	  viewer.refresh();
+		refreshTable();	
 	} 
 	
 	
@@ -59,7 +72,7 @@ public class BibliographyView {
 	private void refreshTable(@UIEventTopic("bibliographySelected") BibtexEntry entry) {
 		viewerInput.add(entry);
 		viewer.setInput(viewerInput);
-		viewer.refresh();
+		refreshTable();
 	} 
 	
 	private void createViewer(Composite parent) {
