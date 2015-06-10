@@ -570,5 +570,6 @@ public class BibtexEntryImpl extends MinimalEObjectImpl.Container implements Bib
 	public String toString() {
 		return title;
 	}
+	
 
 } //BibtexEntryImpl
