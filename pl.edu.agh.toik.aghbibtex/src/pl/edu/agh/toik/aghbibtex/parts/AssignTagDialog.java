@@ -133,7 +133,6 @@ public class AssignTagDialog extends TitleAreaDialog {
 	@Override
 	protected void okPressed() {
 		repository.assignTagToEntries(entries, tagName.getText());
-
 		super.okPressed();
 	}
 

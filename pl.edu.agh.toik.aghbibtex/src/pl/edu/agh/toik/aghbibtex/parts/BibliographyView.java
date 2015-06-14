@@ -14,8 +14,11 @@ import javax.inject.Inject;
 
 import org.eclipse.e4.core.di.annotations.Optional;
 import org.eclipse.e4.core.services.events.IEventBroker;
+import org.eclipse.e4.ui.di.Persist;
 import org.eclipse.e4.ui.di.UIEventTopic;
+import org.eclipse.e4.ui.model.application.ui.MDirtyable;
 import org.eclipse.e4.ui.services.EContextService;
+import org.eclipse.e4.ui.workbench.UIEvents.Dirtyable;
 import org.eclipse.e4.ui.workbench.modeling.ESelectionService;
 import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.jface.viewers.ArrayContentProvider;
@@ -56,6 +59,8 @@ public class BibliographyView {
 	private IBibtexRepository repository;
 	@Inject
 	IEventBroker eventBroker;
+	@Inject
+	MDirtyable dirtyable;
 
 	private Set<BibtexEntry> viewerInput;
 
@@ -98,15 +103,14 @@ public class BibliographyView {
 	}
 
 	private void refreshTable() {
-		System.out.println("aaaaaa");
-		// context.set("currentBibliography", viewerInput);
 		eventBroker.send("currentBibliography", viewerInput);
 		viewer.refresh();
 	}
 
 	@Inject
 	@Optional
-	private void refreshTable(@UIEventTopic("refreshTable") String data) {
+	private void refreshTable(@UIEventTopic("tableDataChanged") String data) {
+		dirtyable.setDirty(true);
 		refreshTable();
 	}
 
@@ -329,6 +333,18 @@ public class BibliographyView {
 
 	public void setFocus() {
 		viewer.getControl().setFocus();
+	}
+	
+
+	@Persist
+	public void save() {
+		List<BibtexEntry> bs = new ArrayList<BibtexEntry>();
+		for(BibtexEntry b : (Set<BibtexEntry>)viewer.getInput())
+		{
+			bs.add((BibtexEntry)b);
+		}
+		repository.saveBibtexEntries(bs);
+		dirtyable.setDirty(false);
 	}
 
 }

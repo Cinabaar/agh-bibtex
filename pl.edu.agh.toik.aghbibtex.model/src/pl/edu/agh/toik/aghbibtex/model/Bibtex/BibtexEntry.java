@@ -260,7 +260,7 @@ public interface BibtexEntry extends EObject {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model annotation="http://www.eclipse.org/emf/2002/GenModel body='return title;'"
+	 * @model annotation="http://www.eclipse.org/emf/2002/GenModel body='String name = title;\nfor(Tag t : tags)\n{\n\tname += \" @\" + t.getName(); \n}\nreturn name;'"
 	 * @generated
 	 */
 	String toString();

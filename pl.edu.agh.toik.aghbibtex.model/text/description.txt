@@ -16,6 +16,7 @@ Package Bibtex <pl.edu.agh.toik.aghbibtex.model>
     Attribute Pages : EString
     Attribute Year : EString
     Reference Tags : Tag<<0..*>>
+    Attribute publicationFilePath : EString
     Operation toString() : EString
 
   Class Tag

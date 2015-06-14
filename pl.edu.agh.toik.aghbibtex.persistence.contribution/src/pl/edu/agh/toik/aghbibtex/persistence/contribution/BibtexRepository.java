@@ -71,11 +71,10 @@ public class BibtexRepository implements IBibtexRepository
 
 		Session session = beginTransaction();
 		
-		Query query = session.createQuery("FROM BibtexEntry");
-		List<BibtexEntry> books = query.list();
+		Query query = session.createQuery("select b FROM BibtexEntry b left outer join fetch b.Tags");
+		List<BibtexEntry> books = query.list();	
 		
-		
-		endTransaction(session);		
+		endTransaction(session);	
 		return books;
 	}
 

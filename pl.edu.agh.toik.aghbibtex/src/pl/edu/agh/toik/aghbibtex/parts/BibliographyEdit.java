@@ -68,7 +68,7 @@ public class BibliographyEdit {
 			currentSelection.setTitle(e.getTitle());
 			currentSelection.setPages(e.getPages());
 			dirtyable.setDirty(false);
-			eventBroker.send("refreshTable", "");
+			eventBroker.send("tableDataChanged", "");
 		}
 		else
 		{

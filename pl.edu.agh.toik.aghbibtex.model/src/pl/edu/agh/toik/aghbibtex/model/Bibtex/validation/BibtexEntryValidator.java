@@ -34,4 +34,6 @@ public interface BibtexEntryValidator {
 	boolean validateValue(String value);
 	boolean validateName(String value);
 	boolean validateTags(EList<Tag> value);
+
+	boolean validatePublicationFilePath(String value);
 }

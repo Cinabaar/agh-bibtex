@@ -10,7 +10,6 @@ import org.eclipse.swt.widgets.Shell;
 public class SaveHandler {
 	@Execute
 	public void execute(Shell shell, MApplication app, EModelService modelService, EPartService partService) {
-		System.out.println("dupa");
 		MPart activePart = partService.getActivePart();
 		partService.savePart(activePart, false);
 	}

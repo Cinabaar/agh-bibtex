@@ -25,7 +25,6 @@ public class ExportHandler {
 	
 	@Execute
 	public void execute(Shell shell) {
-		System.out.println("asdf");
 		FileDialog dialog = new FileDialog(shell, SWT.SAVE);
 		dialog.setFileName("bibliography.bib");
 		String filePath = dialog.open();
@@ -35,7 +34,6 @@ public class ExportHandler {
 	@CanExecute
 	public boolean canExecute()
 	{
-		System.out.println("fsad" + currentBibliography + currentBibliography.size());
 		if(currentBibliography == null || currentBibliography.size() == 0)
 			return false;
 		return true;

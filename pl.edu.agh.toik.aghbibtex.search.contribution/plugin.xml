@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="pl.edu.agh.toik.aghbibtex.search.SearchEntriesBy">
+      <SearchEntriesBy
+            class="pl.edu.agh.toik.aghbibtex.search.contribution.SearchEntriesByTag"
+            id="SearchEntriesByTag">
+      </SearchEntriesBy>
+      <SearchEntriesBy
+            class="pl.edu.agh.toik.aghbibtex.search.contribution.SearchEntriesByName"
+            id="pl.edu.agh.toik.aghbibtex.search.contribution.SearchEntriesByName">
+      </SearchEntriesBy>
+      <SearchEntriesBy
+            class="pl.edu.agh.toik.aghbibtex.search.contribution.SearchEntriesByAuthor"
+            id="pl.edu.agh.toik.aghbibtex.search.contribution.SearchEntriesByAuthor">
+      </SearchEntriesBy>
+      <SearchEntriesBy
+            class="pl.edu.agh.toik.aghbibtex.search.contribution.SearchEntriesByFullText"
+            id="pl.edu.agh.toik.aghbibtex.search.contribution.SearchEntriesByFullText">
+      </SearchEntriesBy>
+   </extension>
+
+</plugin>

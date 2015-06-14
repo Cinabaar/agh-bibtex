@@ -568,7 +568,11 @@ public class BibtexEntryImpl extends MinimalEObjectImpl.Container implements Bib
 	 */
 	@Override
 	public String toString() {
-		return title;
+		String name = title;
+		for(Tag t : tags) {
+			name += " @" + t.getName(); 
+		}
+		return name;
 	}
 	
 

@@ -32,11 +32,9 @@
   <handlers xmi:id="_Auo8sPmbEeSwg46ut-lanw" elementId="pl.edu.agh.toik.aghbibtex.handler.ImportHandler" contributionURI="bundleclass://pl.edu.agh.toik.aghbibtex/pl.edu.agh.toik.aghbibtex.handlers.ImportHandler" command="_9bSVkPmaEeSwg46ut-lanw"/>
   <handlers xmi:id="_Guz9MA7VEeW9KL4hsKF16w" elementId="pl.edu.agh.toik.aghbibtex.handler.SaveHandler" contributionURI="bundleclass://pl.edu.agh.toik.aghbibtex/pl.edu.agh.toik.aghbibtex.handlers.SaveHandler" command="_tnyLMA7QEeW9KL4hsKF16w"/>
   <handlers xmi:id="_Q6DrIA-DEeWrabRMuhJNxA" elementId="pl.edu.agh.toik.aghbibtex.handler.ExportHandler" contributionURI="bundleclass://pl.edu.agh.toik.aghbibtex/pl.edu.agh.toik.aghbibtex.handlers.ExportHandler" command="_U8Dg8A-DEeWrabRMuhJNxA"/>
-  <handlers xmi:id="_QaoJ4A-TEeWSs-OCZGE8iQ" elementId="pl.edu.agh.toik.aghbibtex.handler.DeleteHandler" contributionURI="bundleclass://pl.edu.agh.toik.aghbibtex/pl.edu.agh.toik.aghbibtex.handlers.DeleteHandler" command="_II9OoA-TEeWSs-OCZGE8iQ"/>
   <commands xmi:id="_9bSVkPmaEeSwg46ut-lanw" elementId="org.eclipse.ui.file.import" commandName="Import"/>
   <commands xmi:id="_tnyLMA7QEeW9KL4hsKF16w" elementId="org.eclipse.ui.file.save" commandName="Save"/>
   <commands xmi:id="_U8Dg8A-DEeWrabRMuhJNxA" elementId="org.eclipse.ui.file.export" commandName="Export"/>
-  <commands xmi:id="_II9OoA-TEeWSs-OCZGE8iQ" elementId="pl.edu.agh.toik.aghbibtex.command.delete" commandName="Delete"/>
   <addons xmi:id="_StAYEPjdEeSWa4-KFXyMvg" elementId="org.eclipse.e4.core.commands.service" contributionURI="bundleclass://org.eclipse.e4.core.commands/org.eclipse.e4.core.commands.CommandServiceAddon"/>
   <addons xmi:id="_StAYEfjdEeSWa4-KFXyMvg" elementId="org.eclipse.e4.ui.contexts.service" contributionURI="bundleclass://org.eclipse.e4.ui.services/org.eclipse.e4.ui.services.ContextServiceAddon"/>
   <addons xmi:id="_StAYEvjdEeSWa4-KFXyMvg" elementId="org.eclipse.e4.ui.bindings.service" contributionURI="bundleclass://org.eclipse.e4.ui.bindings/org.eclipse.e4.ui.bindings.BindingServiceAddon"/>

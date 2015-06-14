@@ -32,8 +32,10 @@
       <plugin id="javax.persistence"/>
       <plugin id="javax.servlet"/>
       <plugin id="javax.xml"/>
+      <plugin id="org.apache.batik.css"/>
+      <plugin id="org.apache.batik.util"/>
+      <plugin id="org.apache.batik.util.gui"/>
       <plugin id="org.apache.commons.logging"/>
-      <plugin id="org.apache.felix.gogo.runtime"/>
       <plugin id="org.dom4j"/>
       <plugin id="org.eclipse.ant.core"/>
       <plugin id="org.eclipse.core.commands"/>
@@ -55,10 +57,18 @@
       <plugin id="org.eclipse.e4.core.di"/>
       <plugin id="org.eclipse.e4.core.di.extensions"/>
       <plugin id="org.eclipse.e4.core.services"/>
+      <plugin id="org.eclipse.e4.ui.bindings"/>
+      <plugin id="org.eclipse.e4.ui.css.core"/>
+      <plugin id="org.eclipse.e4.ui.css.swt"/>
+      <plugin id="org.eclipse.e4.ui.css.swt.theme"/>
       <plugin id="org.eclipse.e4.ui.di"/>
       <plugin id="org.eclipse.e4.ui.model.workbench"/>
       <plugin id="org.eclipse.e4.ui.services"/>
+      <plugin id="org.eclipse.e4.ui.widgets"/>
       <plugin id="org.eclipse.e4.ui.workbench"/>
+      <plugin id="org.eclipse.e4.ui.workbench.renderers.swt"/>
+      <plugin id="org.eclipse.e4.ui.workbench.swt"/>
+      <plugin id="org.eclipse.e4.ui.workbench3"/>
       <plugin id="org.eclipse.emf.cdo.ecore.retrofit" fragment="true"/>
       <plugin id="org.eclipse.emf.common"/>
       <plugin id="org.eclipse.emf.ecore"/>
@@ -71,8 +81,11 @@
       <plugin id="org.eclipse.equinox.app"/>
       <plugin id="org.eclipse.equinox.bidi"/>
       <plugin id="org.eclipse.equinox.common"/>
+      <plugin id="org.eclipse.equinox.ds"/>
+      <plugin id="org.eclipse.equinox.event"/>
       <plugin id="org.eclipse.equinox.preferences"/>
       <plugin id="org.eclipse.equinox.registry"/>
+      <plugin id="org.eclipse.equinox.util"/>
       <plugin id="org.eclipse.jface"/>
       <plugin id="org.eclipse.jface.databinding"/>
       <plugin id="org.eclipse.osgi"/>
@@ -83,13 +96,17 @@
       <plugin id="org.hibernate"/>
       <plugin id="org.hsqldb"/>
       <plugin id="org.jbibtex"/>
+      <plugin id="org.w3c.css.sac"/>
+      <plugin id="org.w3c.dom.events"/>
+      <plugin id="org.w3c.dom.smil"/>
+      <plugin id="org.w3c.dom.svg"/>
       <plugin id="pl.edu.agh.toik.aghbibtex"/>
       <plugin id="pl.edu.agh.toik.aghbibtex.model"/>
       <plugin id="pl.edu.agh.toik.aghbibtex.model.contribution"/>
       <plugin id="pl.edu.agh.toik.aghbibtex.persistence"/>
       <plugin id="pl.edu.agh.toik.aghbibtex.persistence.contribution"/>
-      <plugin id="pl.edu.agh.toik.aghbibtex.persistence.impl"/>
-      <plugin id="pl.edu.agh.toik.bibtex"/>
+      <plugin id="pl.edu.agh.toik.aghbibtex.search"/>
+      <plugin id="pl.edu.agh.toik.aghbibtex.search.contribution"/>
    </plugins>
 
    <features>
