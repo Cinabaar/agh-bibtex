@@ -20,10 +20,10 @@ import org.eclipse.jface.viewers.ICheckStateListener;
 import org.eclipse.jface.viewers.ISelectionChangedListener;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.viewers.SelectionChangedEvent;
-import org.eclipse.jface.viewers.StructuredSelection;
-import org.eclipse.jface.viewers.TableViewer;
 import org.eclipse.jface.viewers.TableViewerColumn;
 import org.eclipse.swt.SWT;
+import org.eclipse.swt.events.KeyEvent;
+import org.eclipse.swt.events.KeyListener;
 import org.eclipse.swt.events.SelectionEvent;
 import org.eclipse.swt.events.SelectionListener;
 import org.eclipse.swt.graphics.Image;
@@ -49,11 +49,43 @@ public class BibliographyFile {
 	@Inject
 	private MDirtyable dirtyable;
 
+	private List<BibtexEntry> viewerInput;
+	
 	@PostConstruct
 	public void createControls(Composite parent,
 			@Named("fileName") String fileName) {
 		this.fileName = fileName;
 		createViewer(parent);
+viewer.getTable().addKeyListener(new KeyListener() {
+			
+			@Override
+			public void keyReleased(KeyEvent e) {
+			
+			}
+			
+			@Override
+			public void keyPressed(KeyEvent e) {
+				if(e.keyCode == SWT.DEL)
+				{
+					IStructuredSelection sel = (IStructuredSelection)viewer.getSelection();
+					for(Object o : sel.toList())
+					{
+						int index = viewer.getTable().getSelectionIndex() - 1;
+						if(index >= 0)
+						{
+							viewer.getTable().setSelection(index);
+						}
+						else if(viewer.getTable().getItemCount() > 0)
+						{
+							viewer.getTable().setSelection(1);
+						}
+						viewerInput.remove(o);
+					}
+					
+				}
+				viewer.refresh();
+			}
+		});
 	}
 
 	@Inject
@@ -71,8 +103,10 @@ public class BibliographyFile {
 		table.setLinesVisible(true);
 
 		viewer.setContentProvider(new ArrayContentProvider());
-		viewer.setInput(converter.importFromFile(fileName).toArray());
+		viewerInput = converter.importFromFile(fileName);
+		viewer.setInput(viewerInput);
 		viewer.addSelectionChangedListener(new ISelectionChangedListener() {
+
 			@Override
 			public void selectionChanged(SelectionChangedEvent event) {
 				BibtexEntry entry = (BibtexEntry) ((IStructuredSelection) event
@@ -113,8 +147,8 @@ public class BibliographyFile {
 
 			@Override
 			public void widgetSelected(SelectionEvent e) {
-				if (viewer.getCheckedElements().length == ((Object[]) viewer
-						.getInput()).length) {
+				if (viewer.getCheckedElements().length == ((List) viewer
+						.getInput()).size()) {
 					viewer.setCheckedElements(new Object[0]);
 					maincol.getColumn().setImage(
 							new Image(parent.getDisplay(), getClass()
@@ -122,7 +156,7 @@ public class BibliographyFile {
 											"/res/icons/unchecked.png")));
 
 				} else {
-					viewer.setCheckedElements((Object[]) viewer.getInput());
+					viewer.setCheckedElements(((List) viewer.getInput()).toArray());
 					maincol.getColumn().setImage(
 							new Image(parent.getDisplay(), getClass()
 									.getResourceAsStream(
@@ -138,8 +172,8 @@ public class BibliographyFile {
 
 			@Override
 			public void checkStateChanged(CheckStateChangedEvent event) {
-				if (viewer.getCheckedElements().length == ((Object[]) viewer
-						.getInput()).length) {
+				if (viewer.getCheckedElements().length == ((List) viewer
+						.getInput()).size()) {
 					maincol.getColumn().setImage(
 							new Image(parent.getDisplay(), getClass()
 									.getResourceAsStream(
@@ -230,8 +264,11 @@ public class BibliographyFile {
 	@Persist
 	public void save() {
 		List<BibtexEntry> bs = new ArrayList<BibtexEntry>();
-		for (Object o : viewer.getCheckedElements()) {
-			bs.add((BibtexEntry) o);
+
+		for(Object o : viewer.getCheckedElements())
+		{
+			bs.add((BibtexEntry)o);
+			viewer.remove(o);
 		}
 		repository.saveBibtexEntries(bs);
 		dirtyable.setDirty(false);

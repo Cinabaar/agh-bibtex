@@ -15,6 +15,7 @@ import javax.inject.Inject;
 import org.eclipse.e4.core.di.annotations.Optional;
 import org.eclipse.e4.core.services.events.IEventBroker;
 import org.eclipse.e4.ui.di.UIEventTopic;
+import org.eclipse.e4.ui.services.EContextService;
 import org.eclipse.e4.ui.workbench.modeling.ESelectionService;
 import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.jface.viewers.ArrayContentProvider;
@@ -27,6 +28,8 @@ import org.eclipse.jface.viewers.TableViewerColumn;
 import org.eclipse.jface.viewers.ViewerCell;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.custom.TableEditor;
+import org.eclipse.swt.events.KeyEvent;
+import org.eclipse.swt.events.KeyListener;
 import org.eclipse.swt.events.SelectionEvent;
 import org.eclipse.swt.events.SelectionListener;
 import org.eclipse.swt.layout.GridData;
@@ -58,7 +61,40 @@ public class BibliographyView {
 
 	@PostConstruct
 	public void createControls(Composite parent) {
+
 		createViewer(parent);
+		viewer.getTable().addKeyListener(new KeyListener() {
+			
+			@Override
+			public void keyReleased(KeyEvent e) {
+			
+			}
+			
+			@Override
+			public void keyPressed(KeyEvent e) {
+				if(e.keyCode == SWT.DEL)
+				{
+					
+					IStructuredSelection sel = (IStructuredSelection)viewer.getSelection();
+					
+					for(Object o : sel.toList())
+					{
+						int index = viewer.getTable().getSelectionIndex() - 1;
+						if(index >= 0)
+						{
+							viewer.getTable().setSelection(index);
+						}
+						else if(viewer.getTable().getItemCount() > 0)
+						{
+							viewer.getTable().setSelection(1);
+						}
+						viewerInput.remove(o);
+					}
+					
+				}
+				refreshTable();
+			}
+		});
 	}
 
 	private void refreshTable() {
